@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Study: E-Commerce UX on a Rigid Platform — Abdeali Moiz</title>
+<meta name="description" content="Business analysis case study: improving e-commerce engagement by 60% on an inflexible NopCommerce platform without replatforming.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:#16233a;background:#fbfcfe;line-height:1.65;-webkit-font-smoothing:antialiased}
+.inner{max-width:880px;margin:0 auto;padding:0 28px}
+a{color:#2f4f8f}
+nav{background:#16233a;padding:15px 0;position:sticky;top:0;z-index:50}
+nav .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+nav a{color:#c3cfe6;text-decoration:none;font-size:15px}
+nav a:hover{color:#fff}
+nav .name{color:#fff;font-weight:650}
+.hero{background:#16233a;color:#fff;padding:50px 0 54px}
+.kicker{font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8fa5cc;font-weight:650;margin-bottom:12px}
+.hero h1{font-size:36px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:14px}
+.hero p{color:#c3cfe6;font-size:18px;max-width:660px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2b3a5a;margin-top:32px;border-radius:8px;overflow:hidden}
+.stat{background:#1d2c48;padding:17px 15px}
+.stat b{display:block;font-size:23px;color:#fff;font-weight:700}
+.stat span{font-size:12.5px;color:#8fa5cc}
+section{padding:50px 0;border-bottom:1px solid #e4e9f2}
+.eyebrow{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:10px}
+h2{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px}
+h3{font-size:18px;font-weight:650;margin:24px 0 8px}
+p{margin-bottom:14px}
+.sub{color:#5b6b88;font-size:16.5px;margin-bottom:24px}
+.panel{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:24px}
+.mermaid{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:22px;overflow-x:auto;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden}
+th{background:#f4f7fc;text-align:left;padding:11px 13px;font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:#5b6b88;font-weight:650;border-bottom:1px solid #e4e9f2}
+td{padding:11px 13px;border-bottom:1px solid #eef1f6;vertical-align:top;color:#33425e}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto}
+.pill{display:inline-block;font-size:11.5px;font-weight:650;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.p-must{background:#fdeceb;color:#a3372f}.p-should{background:#fef4e5;color:#8a5a12}.p-could{background:#eef3fb;color:#2f4f8f}
+.p-yes{background:#e8f5ec;color:#1f6b3a}
+.chosen td{background:#f4faf6}
+.story{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:19px 21px;margin-bottom:13px}
+.story .id{font-size:11.5px;font-weight:700;color:#7d8ba8;letter-spacing:1px}
+.story .txt{font-size:16px;margin:6px 0 12px}
+.story .ac{font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:6px}
+.story ul{margin:0 0 0 18px;font-size:14.5px;color:#4a5a76}
+.story li{margin-bottom:4px}
+.chartbox{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:20px;height:300px;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{padding:14px 16px;background:#fff8ec;border-left:3px solid #e0a94a;font-size:14.5px;color:#6b5325;border-radius:0 6px 6px 0}
+.quote{padding:18px 22px;background:#f4f7fc;border-left:3px solid #2f4f8f;font-size:16.5px;color:#33425e;border-radius:0 8px 8px 0;font-style:italic}
+.steps{counter-reset:s}
+.step{position:relative;padding-left:46px;margin-bottom:20px;counter-increment:s}
+.step:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;background:#16233a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:650}
+.step b{display:block;font-size:16.5px;margin-bottom:3px}
+.step p{font-size:15px;color:#4a5a76;margin:0}
+footer{background:#16233a;color:#c3cfe6;padding:42px 0;font-size:15.5px}
+footer a{color:#fff}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.hero h1{font-size:27px}h2{font-size:22px}}
+</style>
+</head>
+<body>
+
+<nav><div class="inner"><a class="name" href="./">Abdeali Moiz</a><span><a href="./">Portfolio</a> &nbsp;·&nbsp; <a href="./case-study.html">Stock control</a> &nbsp;·&nbsp; <a href="mailto:abdealimoiz05@gmail.com">Contact</a></span></div></nav>
+
+<div class="hero"><div class="inner">
+  <div class="kicker">Business analysis case study · Decent Balloons</div>
+  <h1>Improving the storefront when the platform will not let you</h1>
+  <p>The website was built on NopCommerce, which could not be changed through its admin panel. Every improvement had a licence cost attached, and replatforming meant spending the budget twice. I found a third option.</p>
+  <div class="stats">
+    <div class="stat"><b>60%</b><span>Increase in engagement</span></div>
+    <div class="stat"><b>5,000+</b><span>Products on the storefront</span></div>
+    <div class="stat"><b>£0</b><span>Spent on licences or agencies</span></div>
+    <div class="stat"><b>3</b><span>Options formally compared</span></div>
+  </div>
+</div></div>
+
+<section><div class="inner">
+  <div class="eyebrow">01 — The constraint</div>
+  <h2>A platform that could not be edited</h2>
+  <div class="panel">
+    <p>Decent Balloons ran its online store on NopCommerce. Compared with Shopify or the larger hosted platforms, it is rigid. The admin panel let you manage products and orders. It did not let you meaningfully change how the storefront looked or behaved.</p>
+    <p>Anything beyond that meant buying a theme, buying a plugin, or paying a developer. On a small family business with no digital budget, each of those was a real cost against uncertain return.</p>
+    <p style="margin-bottom:0">So the store looked and worked the way it had on day one, while the business around it had grown considerably.</p>
+  </div>
+  <div class="quote" style="margin-top:20px">The problem was not that we did not know what to improve. It was that the platform charged us for the privilege of improving anything.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">02 — Options analysis</div>
+  <h2>Three ways forward</h2>
+  <p class="sub">Rather than argue for a budget, I set out the options with their real costs and risks so the owner could decide on evidence.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Option</th><th>Cost</th><th>Time</th><th>Risk</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>1. Replatform to Shopify</b><br><small style="color:#7d8ba8">Rebuild the store on a flexible platform</small></td>
+        <td>High. Subscription, theme, migration effort</td>
+        <td>Months</td>
+        <td>Full catalogue migration of 5,000+ SKUs. Loss of SEO. Retraining the team</td>
+        <td><span class="pill p-must">Rejected</span><br><small style="color:#7d8ba8">Right answer eventually, wrong answer now</small></td>
+      </tr>
+      <tr>
+        <td><b>2. Buy NopCommerce plugins and a theme</b><br><small style="color:#7d8ba8">Pay the platform to unlock what we needed</small></td>
+        <td>Recurring licence cost per feature</td>
+        <td>Weeks</td>
+        <td>Still constrained by what vendors happened to sell. Cost recurs annually</td>
+        <td><span class="pill p-should">Rejected</span><br><small style="color:#7d8ba8">Paying rent on our own storefront</small></td>
+      </tr>
+      <tr class="chosen">
+        <td><b>3. Customise in-house</b><br><small style="color:#7d8ba8">Work directly with the code and database</small></td>
+        <td>None beyond my time</td>
+        <td>Incremental, shipped in stages</td>
+        <td>Dependent on my availability. Changes must be documented</td>
+        <td><span class="pill p-yes">Chosen</span><br><small style="color:#7d8ba8">Zero cost, full control, reversible</small></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="note" style="margin-top:20px"><b>Why option 3 won.</b> Options 1 and 2 both spent money to buy flexibility. Option 3 bought the same flexibility with skill I already had. It also kept option 1 open: nothing I built made a future migration harder, so replatforming remains available to the business whenever the case for it is strong enough.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">03 — Approach</div>
+  <h2>How I actually did it</h2>
+  <div class="mermaid">
+flowchart TD
+    A[Benchmark against<br/>strong e-commerce sites] --> B[Identify what was missing<br/>on our storefront]
+    B --> C{Achievable through<br/>the admin panel?}
+    C -->|Yes| D[Configure and ship]
+    C -->|No| E{Achievable through<br/>front-end code?}
+    E -->|Yes| F[Modify templates<br/>and styling directly]
+    E -->|No| G[Query and reshape<br/>data with SQL]
+    F --> H[Test on the live catalogue]
+    G --> H
+    D --> H
+    H --> I[Observe engagement<br/>and iterate]
+    I --> B
+    style C fill:#fef4e5,stroke:#8a5a12
+    style E fill:#fef4e5,stroke:#8a5a12
+    style F fill:#e8f5ec,stroke:#1f6b3a
+    style G fill:#e8f5ec,stroke:#1f6b3a
+  </div>
+
+  <div class="panel steps" style="margin-top:22px">
+    <div class="step"><b>Benchmarked against sites that worked</b><p>I studied e-commerce stores I thought performed well and worked backwards from what they did that we did not: how products were presented, how someone moved from browsing to enquiry, what the page gave you before you had to ask.</p></div>
+    <div class="step"><b>Separated what needed money from what needed effort</b><p>A large share of what I wanted turned out to be achievable in the templates and styling rather than through a paid plugin. Establishing that was the analysis. Everything after it was execution.</p></div>
+    <div class="step"><b>Modified the storefront directly</b><p>Where the admin panel could not reach, I worked in the code. Layout, presentation and the on-page elements that shape how a visitor moves through a catalogue of 5,000 products.</p></div>
+    <div class="step"><b>Used SQL against the catalogue</b><p>Restructuring how product data was queried and grouped so that the storefront could present it in ways the stock admin interface never intended.</p></div>
+    <div class="step"><b>Used AI as a development accelerator</b><p>I am not a full-time developer. AI tooling let me work faster on the parts of the implementation that were beyond my day-to-day fluency, while I kept the decisions about what to build.</p></div>
+    <div class="step"><b>Shipped in stages, not in one release</b><p>Each change went live on its own so its effect could be observed. On a live storefront that also kept the downside of any single change small.</p></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">04 — Requirements</div>
+  <h2>What the storefront needed to do</h2>
+  <div class="tablewrap"><table id="reqTable"><thead><tr><th>ID</th><th>Requirement</th><th>Priority</th><th>Constraint it worked around</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">05 — Outcome</div>
+  <h2>Results</h2>
+  <div class="two">
+    <div class="chartbox"><canvas id="c1"></canvas></div>
+    <div class="chartbox"><canvas id="c2"></canvas></div>
+  </div>
+  <div class="panel" style="margin-top:18px">
+    <p><b>Engagement rose by around 60%</b> against the Google Analytics baseline. Visitors were going further into the site rather than leaving from the page they landed on.</p>
+    <p><b>No licence or agency spend.</b> The whole improvement came out of skill rather than budget, which mattered on a business of this size.</p>
+    <p style="margin-bottom:0"><b>The migration option stayed open.</b> Nothing I built made moving platform harder. The business chose to stay on NopCommerce because the in-house work removed the reason to spend on a rebuild.</p>
+  </div>
+  <div class="note" style="margin-top:20px"><b>On the numbers.</b> The 60% figure came from Google Analytics, comparing the periods before and after the changes. It was an observed before-and-after rather than a controlled test, so other factors over that period will have contributed. I would isolate individual changes and measure them as experiments if I ran this again.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">06 — Reflection</div>
+  <h2>What this taught me</h2>
+  <div class="panel">
+    <p><b>Constraints are the interesting part.</b> With an open budget this is a procurement exercise. With no budget it becomes an analysis problem, and the analysis is where the value was.</p>
+    <p><b>Present options, not requests.</b> Asking the owner for money would probably have failed. Setting out three options with costs and risks meant the decision was his and it was made on evidence.</p>
+    <p><b>Do not close doors you might need.</b> The in-house work was the right answer at the time, and it was deliberately built so that replatforming stayed possible later.</p>
+    <p style="margin-bottom:0"><b>None of this was in my job description.</b> I took it on because I was invested in the business and I wanted to see whether it could be done. That is still the kind of problem I want to work on.</p>
+  </div>
+</div></section>
+
+<footer><div class="inner">
+  <p style="margin-bottom:10px;color:#fff;font-size:19px;font-weight:650">Abdeali Moiz</p>
+  <p>Seeking a 12-month business analyst placement, June 2027 to September 2028.</p>
+  <p style="margin-bottom:0"><a href="mailto:abdealimoiz05@gmail.com">abdealimoiz05@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/abdeali-moiz">LinkedIn</a> &nbsp;·&nbsp; <a href="./">Back to portfolio</a></p>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#eef3fb',primaryTextColor:'#16233a',primaryBorderColor:'#2f4f8f',lineColor:'#7d8ba8',fontSize:'13px',fontFamily:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'}});
+const R=[
+["FR-01","Present 5,000+ products so a visitor can find something without knowing what to search for","Must","Admin panel offered no control over catalogue presentation"],
+["FR-02","Give the storefront a current look without buying a theme","Must","Themes carried a licence cost"],
+["FR-03","Add on-page elements that move a visitor from browsing towards an enquiry","Must","Plugins were the only supported route and each had a price"],
+["FR-04","Reshape how product data is grouped and surfaced","Should","Stock admin interface was built for administration, not merchandising"],
+["FR-05","Every change must be reversible and must not obstruct a future platform migration","Should","Replatforming remained the long-term intention"],
+["NFR-01","No licence, subscription or agency spend","Must","No digital budget existed"],
+["NFR-02","Changes ship individually so each can be observed on a live store","Must","No staging environment and a trading storefront"]
+];
+const tb=document.querySelector('#reqTable tbody');
+R.forEach(function(r){var c=r[2]==='Must'?'p-must':r[2]==='Should'?'p-should':'p-could';
+tb.insertAdjacentHTML('beforeend','<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td><span class="pill '+c+'">'+r[2]+'</span></td><td>'+r[3]+'</td></tr>');});
+const navy='#16233a',blue='#2f4f8f',light='#c3cfe6';
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:['Before','After'],datasets:[{label:'Engagement',data:[100,160],backgroundColor:[light,blue],borderRadius:6,barThickness:62}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'Site engagement (indexed, before = 100)',color:navy,font:{size:13,weight:'600'}}},scales:{y:{beginAtZero:true,max:180,grid:{color:'#eef1f6'},ticks:{color:'#7d8ba8'}},x:{grid:{display:false},ticks:{color:'#5b6b88'}}}}});
+new Chart(document.getElementById('c2'),{type:'bar',indexAxis:'y',data:{labels:['Replatform to Shopify','Buy plugins and theme','Customise in-house'],datasets:[{label:'Relative cost',data:[100,55,0],backgroundColor:[light,'#7d94c4',blue],borderRadius:5,barThickness:26}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'Relative cost of each option considered',color:navy,font:{size:13,weight:'600'}}},scales:{x:{beginAtZero:true,max:110,grid:{color:'#eef1f6'},ticks:{color:'#7d8ba8'}},y:{grid:{display:false},ticks:{color:'#5b6b88',font:{size:11.5}}}}}});
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Study: Multi-Channel Stock Control — Abdeali Moiz</title>
+<meta name="description" content="Business analysis case study: unifying stock control across five sales channels and an events business, cutting order-processing delay by 20%.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:#16233a;background:#fbfcfe;line-height:1.65;-webkit-font-smoothing:antialiased}
+.inner{max-width:880px;margin:0 auto;padding:0 28px}
+a{color:#2f4f8f}
+nav{background:#16233a;padding:15px 0;position:sticky;top:0;z-index:50}
+nav .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+nav a{color:#c3cfe6;text-decoration:none;font-size:15px}
+nav a:hover{color:#fff}
+nav .name{color:#fff;font-weight:650}
+.hero{background:#16233a;color:#fff;padding:50px 0 54px}
+.kicker{font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8fa5cc;font-weight:650;margin-bottom:12px}
+.hero h1{font-size:36px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:14px}
+.hero p{color:#c3cfe6;font-size:18px;max-width:660px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2b3a5a;margin-top:32px;border-radius:8px;overflow:hidden}
+.stat{background:#1d2c48;padding:17px 15px}
+.stat b{display:block;font-size:23px;color:#fff;font-weight:700}
+.stat span{font-size:12.5px;color:#8fa5cc}
+section{padding:50px 0;border-bottom:1px solid #e4e9f2}
+.eyebrow{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:10px}
+h2{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px}
+h3{font-size:18px;font-weight:650;margin:26px 0 8px}
+p{margin-bottom:14px}
+.sub{color:#5b6b88;font-size:16.5px;margin-bottom:24px}
+.panel{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:24px}
+.mermaid{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:22px;overflow-x:auto;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden}
+th{background:#f4f7fc;text-align:left;padding:11px 13px;font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:#5b6b88;font-weight:650;border-bottom:1px solid #e4e9f2}
+td{padding:11px 13px;border-bottom:1px solid #eef1f6;vertical-align:top;color:#33425e}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto}
+.pill{display:inline-block;font-size:11.5px;font-weight:650;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.p-must{background:#fdeceb;color:#a3372f}.p-should{background:#fef4e5;color:#8a5a12}.p-could{background:#eef3fb;color:#2f4f8f}
+.story{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:19px 21px;margin-bottom:13px}
+.story .id{font-size:11.5px;font-weight:700;color:#7d8ba8;letter-spacing:1px}
+.story .txt{font-size:16px;margin:6px 0 12px}
+.story .ac{font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:6px}
+.story ul{margin:0 0 0 18px;font-size:14.5px;color:#4a5a76}
+.story li{margin-bottom:4px}
+.chartbox{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:20px;height:300px;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{padding:14px 16px;background:#fff8ec;border-left:3px solid #e0a94a;font-size:14.5px;color:#6b5325;border-radius:0 6px 6px 0}
+.quote{padding:18px 22px;background:#f4f7fc;border-left:3px solid #2f4f8f;font-size:16.5px;color:#33425e;border-radius:0 8px 8px 0;font-style:italic}
+.matrix{display:grid;grid-template-columns:130px 1fr 1fr;gap:1px;background:#e4e9f2;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden;font-size:14px}
+.matrix>div{background:#fff;padding:14px}
+.matrix .hd,.matrix .rl{background:#f4f7fc;font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:#5b6b88;font-weight:650;display:flex;align-items:center}
+.matrix b{display:block;font-size:13.5px;margin-bottom:2px}
+.matrix small{color:#7d8ba8;font-size:12.5px;display:block}
+.steps{counter-reset:s}
+.step{position:relative;padding-left:46px;margin-bottom:22px;counter-increment:s}
+.step:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;background:#16233a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:650}
+.step b{display:block;font-size:16.5px;margin-bottom:3px}
+.step p{font-size:15px;color:#4a5a76;margin:0}
+footer{background:#16233a;color:#c3cfe6;padding:42px 0;font-size:15.5px}
+footer a{color:#fff}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.hero h1{font-size:27px}h2{font-size:22px}.matrix{grid-template-columns:1fr}.matrix .rl{padding:8px 14px}}
+</style>
+</head>
+<body>
+
+<nav><div class="inner"><a class="name" href="./">Abdeali Moiz</a><span><a href="./">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:abdealimoiz05@gmail.com">Contact</a></span></div></nav>
+
+<div class="hero"><div class="inner">
+  <div class="kicker">Business analysis case study · Decent Balloons</div>
+  <h1>One stock pool, five channels, two weeks to restock</h1>
+  <p>A party and events retailer selling 5,000+ products across five channels while running an events business off the same inventory. Nobody could say what was actually available to sell. I designed and built the system that fixed it.</p>
+  <div class="stats">
+    <div class="stat"><b>5,000+</b><span>SKUs in the catalogue</span></div>
+    <div class="stat"><b>5</b><span>Channels sharing one stock pool</span></div>
+    <div class="stat"><b>14 days</b><span>Restock lead time</span></div>
+    <div class="stat"><b>20%</b><span>Reduction in processing delay</span></div>
+  </div>
+</div></div>
+
+<section><div class="inner">
+  <div class="eyebrow">01 — Context</div>
+  <h2>The business</h2>
+  <div class="panel">
+    <p>Decent Balloons is a party and events retailer with a catalogue of more than 5,000 products. It sells through five routes: the physical store, its NopCommerce website, Instagram, WhatsApp and Google Business. It also runs an events arm that consumes the same stock to deliver parties and functions.</p>
+    <p>Restocking ran on a roughly two-week cycle. So a stockout was not a same-day inconvenience. It was a two-week hole.</p>
+    <p style="margin-bottom:0"><b>My role.</b> E-Commerce and Operations Manager, leading a team of five to six people covering e-commerce and direct call sales. Fixing this was not in my job description. I took it on because I could see the same failure happening every fortnight and I wanted to build the thing that stopped it.</p>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">02 — Problem definition</div>
+  <h2>The real problem was not stock. It was visibility.</h2>
+  <p class="sub">The business believed it had a stock problem. What it had was five systems disagreeing about the same number.</p>
+  <div class="mermaid">
+flowchart TD
+    subgraph POOL[" One physical stock pool · 5,000+ SKUs "]
+      S[(Warehouse and shop floor)]
+    end
+    S --> C1[Physical store<br/>sells from shelf]
+    S --> C2[NopCommerce<br/>own stock figure]
+    S --> C3[Instagram<br/>no stock figure]
+    S --> C4[WhatsApp<br/>no stock figure]
+    S --> C5[Google Business<br/>no stock figure]
+    S --> C6[Events arm<br/>reserves stock informally]
+    C1 --> X{{"No single view of<br/>what is available to promise"}}
+    C2 --> X
+    C3 --> X
+    C4 --> X
+    C5 --> X
+    C6 --> X
+    X --> R1[Overselling and<br/>cancelled orders]
+    X --> R2[Orders held while<br/>stock is verified by hand]
+    X --> R3[Restock ordered<br/>on incomplete information]
+    style X fill:#fdeceb,stroke:#a3372f,color:#a3372f
+    style R1 fill:#fef4e5,stroke:#8a5a12
+    style R2 fill:#fef4e5,stroke:#8a5a12
+    style R3 fill:#fef4e5,stroke:#8a5a12
+  </div>
+
+  <h3>Root cause</h3>
+  <div class="panel">
+    <p>Six demand streams were drawing down one physical stock pool, and only one of them, the website, held a stock number at all. The events arm reserved stock without recording it anywhere the sales team could see.</p>
+    <p style="margin-bottom:0">The consequence was that no one could answer <b>"can we sell this today?"</b> without physically walking to the shelf. On a 5,000-SKU catalogue, that check was the bottleneck. It sat in the middle of every order, on every channel, every day.</p>
+  </div>
+  <div class="quote" style="margin-top:20px">The two-week restock cycle turned a visibility problem into a revenue problem. Promise something you do not have, and the customer waits a fortnight or cancels.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">03 — Stakeholders</div>
+  <h2>Who had to agree, and who had to adopt</h2>
+  <p class="sub">Mapped by influence and interest, which determined how I engaged each group.</p>
+  <div class="matrix">
+    <div class="hd"></div><div class="hd">Lower interest</div><div class="hd">Higher interest</div>
+    <div class="rl">High influence</div>
+    <div><b>Suppliers</b><small>Keep informed. Affected only through changed reorder timing.</small></div>
+    <div><b>Business owner</b><small>Manage closely. Signed off the change and carried the cost of it failing.</small></div>
+    <div class="rl">Low influence</div>
+    <div><b>Customers</b><small>Monitor. Felt every stockout, had no voice in the process.</small></div>
+    <div><b>Sales and e-commerce team (5–6)</b><small>Keep satisfied. Used the system daily and could kill it by ignoring it.</small><b style="margin-top:10px">Long-tenured staff</b><small>The real risk. Decades of experience, deeply sceptical of new tools.</small></div>
+  </div>
+  <div class="note" style="margin-top:20px"><b>The insight that shaped the whole project:</b> the owner had the authority to approve it, but the team had the power to make it fail. A system they resented would have been quietly abandoned within a month. That changed what I built and how I introduced it.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">04 — Requirements</div>
+  <h2>What the solution had to do</h2>
+  <p class="sub">Elicited from watching the process, talking to the team, and tracing where orders actually stalled. Prioritised with MoSCoW.</p>
+  <div class="tablewrap"><table id="reqTable"><thead><tr><th>ID</th><th>Requirement</th><th>Type</th><th>Priority</th><th>Why</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">05 — User stories</div>
+  <h2>Stories and acceptance criteria</h2>
+  <p class="sub">Written from the perspective of the people who had to use it, each with criteria you could actually test against.</p>
+  <div id="stories"></div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">06 — Solution</div>
+  <h2>What I designed and built</h2>
+  <p class="sub">An integrated stock control layer sitting between the physical inventory and every channel that draws on it.</p>
+  <div class="mermaid">
+flowchart LR
+    subgraph SRC[" Sources of truth "]
+      A[(Master stock register<br/>5,000+ SKUs)]
+    end
+    subgraph SYS[" Integration layer "]
+      B[Excel control system<br/>SKU · quantity · location · reorder point]
+      P[Python routines<br/>bulk updates and reconciliation]
+      J[JavaFX inventory tool<br/>desk-side stock entry and lookup]
+    end
+    A --> B
+    B <--> P
+    B <--> J
+    B --> D1[Accounting software]
+    B --> D2[NopCommerce website]
+    B --> D3[Event management software]
+    B --> D4[Sales team view<br/>store · phone · WhatsApp · social]
+    D1 -.movement.-> B
+    D2 -.sale.-> B
+    D3 -.event reservation.-> B
+    D4 -.sale.-> B
+    style B fill:#e8f5ec,stroke:#1f6b3a
+    style P fill:#eef3fb,stroke:#2f4f8f
+    style J fill:#eef3fb,stroke:#2f4f8f
+  </div>
+
+  <h3>How it works</h3>
+  <div class="panel steps">
+    <div class="step"><b>Single master register</b><p>Every product, SKU, quantity, location and minimum stock level held in one place rather than five.</p></div>
+    <div class="step"><b>Movement in one channel updates every channel</b><p>A sale in store, an order on the website, or an event reservation all draw down the same figure. The number the sales team sees is the number that exists.</p></div>
+    <div class="step"><b>Events treated as a demand stream, not an exception</b><p>The events arm's reservations became visible stock commitments rather than an informal understanding, so nothing was sold twice.</p></div>
+    <div class="step"><b>Reorder points tied to the 14-day cycle</b><p>Minimum stock levels set against the real restock lead time, so the reorder trigger fired early enough to matter.</p></div>
+    <div class="step"><b>Built in-house, deliberately</b><p>I proposed doing this internally rather than bringing in an external supplier. I understood how the business actually ran, and a bought system would have been configured around assumptions rather than the real process.</p></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">07 — Change management</div>
+  <h2>The hardest part was not the build</h2>
+  <p class="sub">The system worked in week one. Getting it used took the rest of the two months.</p>
+  <div class="panel">
+    <p>The resistance came from the most experienced people in the business, staff in their sixties who had run this operation successfully for years without any of it. Their objection was not unreasonable. They had a working method, they were being asked to replace it with something unfamiliar, and the person asking was considerably younger than them.</p>
+    <h3 style="margin-top:22px">What did not work</h3>
+    <p>Explaining the system. Demonstrating the system. Pointing at the stockouts it would have prevented. None of that moved anyone, because none of it answered the question they were actually asking, which was <i>"why should I change something that already works for me?"</i></p>
+    <h3>What did work</h3>
+    <p>Two things. First, I stopped talking about the technology and started talking about their day: the calls they would not have to make, the trips to the shelf they would not have to take, the customer conversations they would not have to reopen. The benefit had to be theirs, not the business's.</p>
+    <p style="margin-bottom:0">Second, I made the change small. They did not have to learn a system. They had to look at one number before promising stock. Everything else stayed the same at first, and the rest followed once they trusted that number.</p>
+  </div>
+  <div class="quote" style="margin-top:20px">Adoption is not a communications problem. It is a design problem. If the first step is hard, nobody takes it.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">08 — Outcome</div>
+  <h2>Results</h2>
+  <div class="two">
+    <div class="chartbox"><canvas id="c1"></canvas></div>
+    <div class="chartbox"><canvas id="c2"></canvas></div>
+  </div>
+  <h3>What changed in practice</h3>
+  <div class="panel">
+    <p><b>Order-processing delay fell by around 20%.</b> The manual stock check that sat in the middle of every order was removed.</p>
+    <p><b>Channels stopped disagreeing.</b> An order taken on WhatsApp was worked the same way as one taken in store, against the same stock figure.</p>
+    <p><b>Restocking got better inputs.</b> Reorder decisions were made against real consumption across all six demand streams rather than one channel's view.</p>
+    <p style="margin-bottom:0"><b>The change survived.</b> The team that resisted it kept using it, which is the outcome most process changes fail to reach.</p>
+  </div>
+  <div class="note" style="margin-top:20px"><b>On the numbers.</b> This was a small family business and improvement was tracked informally rather than through a formal measurement framework. The 20% figure was the business's own assessment of the change over the following trading period. I would set a baseline and a defined metric before starting if I ran this again, and that is the main thing I would do differently.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">09 — Reflection</div>
+  <h2>What I took from it</h2>
+  <div class="panel">
+    <p><b>The stated problem is rarely the real one.</b> The business thought it had a stock problem and a staffing problem. It had a data visibility problem that produced both.</p>
+    <p><b>Measure first.</b> I improved something I had not properly baselined. The result was real but I cannot describe it as precisely as I would like, and that is a lesson I only get to learn once.</p>
+    <p><b>The stakeholder work is the work.</b> I could have built the same system in a fortnight. It took two months because building it was the easy half.</p>
+    <p style="margin-bottom:0"><b>This is why I want to be a business analyst.</b> The part I enjoyed was not the Excel or the Python. It was working out why the process failed, and then getting people to accept a different one.</p>
+  </div>
+</div></section>
+
+<footer><div class="inner">
+  <p style="margin-bottom:10px;color:#fff;font-size:19px;font-weight:650">Abdeali Moiz</p>
+  <p>Seeking a 12-month business analyst placement, June 2027 to September 2028.</p>
+  <p style="margin-bottom:0"><a href="mailto:abdealimoiz05@gmail.com">abdealimoiz05@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/abdeali-moiz">LinkedIn</a> &nbsp;·&nbsp; <a href="./">Back to portfolio</a></p>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#eef3fb',primaryTextColor:'#16233a',primaryBorderColor:'#2f4f8f',lineColor:'#7d8ba8',fontSize:'13px',fontFamily:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'}});
+const R=[
+["FR-01","A single master stock register covering every SKU, quantity, location and minimum level","Functional","Must","Five separate views of one stock pool was the root cause"],
+["FR-02","Stock movement in any channel must update the figure every other channel sees","Functional","Must","Removes the manual shelf check from the middle of every order"],
+["FR-03","Event reservations must appear as visible commitments against stock","Functional","Must","The events arm was consuming stock invisibly"],
+["FR-04","Reorder points must be set against the real 14-day restock lead time","Functional","Must","A trigger that fires too late is the same as no trigger"],
+["FR-05","The system must integrate with the accounting software, the website and the event management software","Functional","Should","Avoids re-keying and keeps one source of truth"],
+["FR-06","Sales staff must be able to check availability without leaving the customer conversation","Functional","Should","The delay was caused by discovering problems after the customer had gone"],
+["NFR-01","Adding one step for the sales team is acceptable; adding three is not","Non-functional","Must","A slower process would have been abandoned"],
+["NFR-02","No new software licence or subscription cost","Constraint","Must","Small family business, no tooling budget"],
+["NFR-03","Usable by staff with no technical background and no appetite for learning a new tool","Non-functional","Must","The most experienced users were the most resistant"]
+];
+const tb=document.querySelector('#reqTable tbody');
+R.forEach(function(r){var c=r[3]==='Must'?'p-must':r[3]==='Should'?'p-should':'p-could';
+tb.insertAdjacentHTML('beforeend','<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td><span class="pill '+c+'">'+r[3]+'</span></td><td>'+r[4]+'</td></tr>');});
+const S=[
+["US-01","As a salesperson on any channel, I want to see current availability while I am still with the customer, so that I never promise stock we do not have.",
+["Availability is visible without leaving the order-taking position","The figure reflects sales and event reservations made the same day","Where stock is short, the shortfall is visible before the order is confirmed"]],
+["US-02","As an events coordinator, I want my reservations to reduce visible stock, so that the sales team cannot sell what I have already committed.",
+["A reservation reduces the available figure immediately","Reserved stock is distinguishable from sold stock","Releasing a reservation returns the stock to available"]],
+["US-03","As the business owner, I want reorder points that account for the 14-day lead time, so that we stop running out between deliveries.",
+["Each SKU carries a minimum level set against the restock cycle","Items at or below minimum are flagged before the next order window","The flag list can be produced without manual checking"]],
+["US-04","As a long-tenured member of staff, I want the new way of working to be one extra glance rather than a new system to learn, so that I can adopt it without disrupting how I already work.",
+["The first required change is a single check, not a new process","No login, training course or new device is required to start","The existing way of working continues alongside it during transition"]],
+["US-05","As the business owner, I want stock figures to reconcile with the accounts, so that inventory value in the books matches what is on the shelf.",
+["Stock movements feed the accounting software without re-keying","Discrepancies between system and physical count are surfaced, not hidden","Reconciliation can be run without rebuilding the data by hand"]]
+];
+const sc=document.getElementById('stories');
+S.forEach(function(s){sc.insertAdjacentHTML('beforeend','<div class="story"><div class="id">'+s[0]+'</div><div class="txt">'+s[1]+'</div><div class="ac">Acceptance criteria</div><ul>'+s[2].map(function(a){return '<li>'+a+'</li>';}).join('')+'</ul></div>');});
+const navy='#16233a',blue='#2f4f8f',light='#c3cfe6';
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:['Before','After'],datasets:[{label:'Processing delay',data:[100,80],backgroundColor:[light,blue],borderRadius:6,barThickness:62}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'Order-processing delay (indexed, before = 100)',color:navy,font:{size:13,weight:'600'}}},scales:{y:{beginAtZero:true,max:110,grid:{color:'#eef1f6'},ticks:{color:'#7d8ba8'}},x:{grid:{display:false},ticks:{color:'#5b6b88'}}}}});
+new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['Physical store','Phone','WhatsApp','Website and social'],datasets:[{data:[35,25,20,20],backgroundColor:[navy,blue,'#7d94c4',light],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:'#5b6b88',boxWidth:12,font:{size:12}}},title:{display:true,text:'Approximate order share by channel',color:navy,font:{size:13,weight:'600'}}}}});
+</script>
+</body>
+</html>
