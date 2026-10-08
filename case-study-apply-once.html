@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project: Apply Once (in progress) | Abdeali Moiz</title>
+<meta name="description" content="Business analysis project in progress: why UK placement students re-type the same application data into every employer's system, and what Brunel can do about it now.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:#16233a;background:#fbfcfe;line-height:1.65;-webkit-font-smoothing:antialiased}
+.inner{max-width:880px;margin:0 auto;padding:0 28px}
+a{color:#2f4f8f}
+nav{background:#16233a;padding:15px 0;position:sticky;top:0;z-index:50}
+nav .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+nav a{color:#c3cfe6;text-decoration:none;font-size:15px}
+nav a:hover{color:#fff}
+nav .name{color:#fff;font-weight:650}
+.hero{background:#16233a;color:#fff;padding:50px 0 54px}
+.kicker{font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8fa5cc;font-weight:650;margin-bottom:12px}
+.hero h1{font-size:36px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:14px}
+.hero p{color:#c3cfe6;font-size:18px;max-width:660px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2b3a5a;margin-top:32px;border-radius:8px;overflow:hidden}
+.stat{background:#1d2c48;padding:17px 15px}
+.stat b{display:block;font-size:23px;color:#fff;font-weight:700}
+.stat span{font-size:12.5px;color:#8fa5cc}
+.wip{margin-top:26px;padding:13px 16px;border:1px solid #3d5079;border-radius:8px;font-size:14.5px;color:#c3cfe6;max-width:700px}
+.wip b{color:#fff}
+section{padding:50px 0;border-bottom:1px solid #e4e9f2}
+.eyebrow{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:10px}
+h2{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px}
+h3{font-size:18px;font-weight:650;margin:28px 0 10px}
+p{margin-bottom:14px}
+.sub{color:#5b6b88;font-size:16.5px;margin-bottom:24px}
+.muted{color:#7d8ba8}
+.panel{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:24px}
+.mermaid{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:22px;overflow-x:auto;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden}
+th{background:#f4f7fc;text-align:left;padding:11px 13px;font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:#5b6b88;font-weight:650;border-bottom:1px solid #e4e9f2}
+td{padding:11px 13px;border-bottom:1px solid #eef1f6;vertical-align:top;color:#33425e}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto}
+.tablewrap table{min-width:640px}
+td:first-child b{white-space:nowrap}
+.pill{display:inline-block;font-size:11.5px;font-weight:650;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.p-must{background:#fdeceb;color:#a3372f}.p-should{background:#fef4e5;color:#8a5a12}.p-could{background:#eef3fb;color:#2f4f8f}
+.p-yes{background:#e8f5ec;color:#1f6b3a}.p-grey{background:#eef1f6;color:#5b6b88}.p-cat{background:#f4f7fc;color:#33425e}
+.story{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:17px 20px;margin:0 0 11px}
+.story .id{font-size:11.5px;font-weight:700;color:#7d8ba8;letter-spacing:1px}
+.story .txt{font-size:16px;font-weight:600;margin:5px 0 8px}
+.story .d{font-size:14.5px;color:#4a5a76;margin-bottom:8px;white-space:pre-line}
+.story .ac{font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin:10px 0 6px}
+.story ul{margin:0 0 0 18px;font-size:14.5px;color:#4a5a76}
+.story li{margin-bottom:4px}
+.epic{border:1px solid #e4e9f2;border-radius:10px;background:#f4f7fc;margin-bottom:14px;padding:0 16px}
+.epic summary{cursor:pointer;padding:15px 0;font-weight:650;font-size:16.5px;list-style-position:outside}
+.epic summary .id{font-size:11.5px;letter-spacing:1px;color:#7d8ba8;margin-right:6px}
+.epic summary .count{font-size:13px;color:#7d8ba8;font-weight:500;margin-left:4px}
+.epic[open]{padding-bottom:6px}
+.epicdesc{font-size:14.5px;color:#4a5a76}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{padding:14px 16px;background:#fff8ec;border-left:3px solid #e0a94a;font-size:14.5px;color:#6b5325;border-radius:0 6px 6px 0}
+.quote{padding:18px 22px;background:#f4f7fc;border-left:3px solid #2f4f8f;font-size:16.5px;color:#33425e;border-radius:0 8px 8px 0}
+.bar{height:8px;background:#eef1f6;border-radius:4px;overflow:hidden;margin-top:6px;min-width:90px}
+.bar i{display:block;height:100%;background:#2f4f8f}
+footer{background:#16233a;color:#c3cfe6;padding:42px 0;font-size:15.5px}
+footer a{color:#fff}
+@media(max-width:700px){.inner{padding:0 16px}.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.hero h1{font-size:27px}h2{font-size:22px}}
+</style>
+</head>
+<body>
+
+<nav><div class="inner"><a class="name" href="./">Abdeali Moiz</a><span><a href="./">Portfolio</a> &nbsp;·&nbsp; <a href="./case-study.html">Stock control</a> &nbsp;·&nbsp; <a href="mailto:abdealimoiz05@gmail.com">Contact</a></span></div></nav>
+
+<div class="hero"><div class="inner">
+  <div class="kicker">Business analysis project · In progress · Started October 2026</div>
+  <h1>Apply Once: why students type the same CV into every employer's form</h1>
+  <p>Applying for placements in October 2026, I typed the same work history, degree and languages into system after system, created a new account almost every time, and could not tell from half the adverts whether I was even allowed to apply. This project measures that problem properly and asks what Brunel can do about it now.</p>
+  <div class="stats">
+    <div class="stat"><b>13</b><span>Problems logged from my own applications</span></div>
+    <div class="stat"><b>4</b><span>Application systems used (Workday, SuccessFactors, Phenom, Breezy)</span></div>
+    <div class="stat"><b>5 of 8</b><span>Adverts unclear on right to work for placement students</span></div>
+    <div class="stat"><b>29</b><span>Backlog items: 5 epics, 6 stories, 18 tasks</span></div>
+  </div>
+  <div class="wip"><b>Status: discovery phase.</b> This page shows the work as it stands, not a finished result. Every figure on it traces to a row in my evidence log. Where something has not been measured yet, the page says so instead of estimating it.</div>
+</div></div>
+
+<section><div class="inner">
+  <div class="eyebrow">01 · The problem</div>
+  <h2>The same data, typed again and again</h2>
+  <div class="panel">
+    <p>A UK placement student who applies to 20 employers fills in 20 different forms, often across five or more different application systems. Each copy is another chance for a mistake. In one week I applied to 6 employers on 4 systems. I re-typed work history the system had just read from my CV, and lost a whole form once because it had no auto-save.</p>
+    <p style="margin-bottom:0">Time is only part of it. UK employers advertise placements to students on Student visas, but word the right-to-work rule so differently that the same student seems to qualify at one employer and not at the next. Students guess. A wrong guess either loses them the role or puts a false answer on a legal form.</p>
+  </div>
+  <div class="quote" style="margin-top:20px"><b>The question:</b> what would it take for a UK placement student to enter their application data once, correctly, and re-use it everywhere, and what can Brunel do about it this year without waiting for the software vendors?</div>
+  <p class="muted" style="margin-top:18px;font-size:14.5px">For scale, the <a href="https://ise.org.uk/_userfiles/pages/files/reports/student_recruitment_survey_2025.pdf">Institute of Student Employers survey 2025</a> reports a mean of 123 applications per placement hire, up 27% on the year before, and 93% of employers using online application form questions.</p>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">02 · Evidence so far</div>
+  <h2>13 problems from my own applications</h2>
+  <p class="sub">Logged between 1 and 8 October 2026, each from a session I sat through myself. Time and field counts are deliberately blank for now: they will be measured with a stopwatch on my next five applications, not guessed.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>ID</th><th>System</th><th>What happened</th><th>Category</th><th>Impact</th></tr></thead>
+    <tbody>
+<tr><td><b>F-01</b></td><td>SAP SuccessFactors<br><small class='muted'>Hatch</small></td><td><b>Whole application</b><br>Form has no auto-save: answers from an earlier session were lost when the page was left without pressing Save, and everything was re-entered.</td><td><span class='pill p-cat'>Data loss</span></td><td>Full re-entry of every answer</td></tr>
+<tr><td><b>F-02</b></td><td>SAP SuccessFactors<br><small class='muted'>Hatch</small></td><td><b>Cumulative average</b><br>Field accepts numbers only. A UK percentage with context (&#x27;55.8%, UK scale&#x27;) was rejected as &#x27;Invalid number&#x27;.</td><td><span class='pill p-cat'>UK mismatch</span></td><td>Grade loses its meaning for a US reader</td></tr>
+<tr><td><b>F-03</b></td><td>SAP SuccessFactors<br><small class='muted'>Hatch</small></td><td><b>&#x27;Is your GPA 3.0 or above?&#x27;</b><br>Yes/No question with no UK equivalent; applicant has to convert a UK grade with no official scale.</td><td><span class='pill p-cat'>UK mismatch</span></td><td>Risk of wrong or misleading answer</td></tr>
+<tr><td><b>F-04</b></td><td>SAP SuccessFactors<br><small class='muted'>Hatch</small></td><td><b>Sponsorship question</b><br>&#x27;Now or ever in the future&#x27; sponsorship question does not fit a J-1 visa sponsored by a third party.</td><td><span class='pill p-cat'>Ambiguous question</span></td><td>Applicant cannot answer accurately with Yes/No</td></tr>
+<tr><td><b>F-05</b></td><td>Workday<br><small class='muted'>Regeneron</small></td><td><b>&#x27;Use My Last Application&#x27;</b><br>Re-used answers from a previous application (county, languages, CV) that were wrong for this one.</td><td><span class='pill p-cat'>Stale data</span></td><td>Every pre-filled field must be re-checked</td></tr>
+<tr><td><b>F-06</b></td><td>Workday<br><small class='muted'>Regeneron</small></td><td><b>County picklist</b><br>Home postcode sits on a borough boundary; the picklist led to the wrong county being recorded.</td><td><span class='pill p-cat'>UK mismatch</span></td><td>Wrong address data on record</td></tr>
+<tr><td><b>F-07</b></td><td>Workday<br><small class='muted'>Samsung</small></td><td><b>Account creation</b><br>Separate account needed for Samsung&#x27;s Workday site.</td><td><span class='pill p-cat'>Account wall</span></td><td>Extra sign-up before applying</td></tr>
+<tr><td><b>F-08</b></td><td>Workday<br><small class='muted'>Kenvue</small></td><td><b>Account creation</b><br>Separate account needed again for Kenvue&#x27;s Workday site, the same software as F-07.</td><td><span class='pill p-cat'>Account wall</span></td><td>Extra sign-up; another password</td></tr>
+<tr><td><b>F-09</b></td><td>Workday<br><small class='muted'>Samsung vs Kenvue</small></td><td><b>&#x27;How did you hear about us?&#x27;</b><br>Each employer uses its own nested list (&#x27;Job Board - Other&#x27; vs &#x27;A Job Board not Listed&#x27;). Neither lists a university careers board.</td><td><span class='pill p-cat'>Inconsistent taxonomy</span></td><td>Employers can&#x27;t measure university boards; applicant guesses</td></tr>
+<tr><td><b>F-10</b></td><td>Workday<br><small class='muted'>Samsung</small></td><td><b>Field of study</b><br>Searchable list has no &#x27;Business Computing&#x27;; nearest match &#x27;Business Information Systems&#x27;.</td><td><span class='pill p-cat'>UK mismatch</span></td><td>Degree recorded inaccurately</td></tr>
+<tr><td><b>F-11</b></td><td>Workday vs SuccessFactors<br><small class='muted'>Samsung vs Hatch</small></td><td><b>Language proficiency</b><br>Samsung scale: Average / Excellent / Not Qualified. Hatch scale: Beginner / Intermediate / Advanced.</td><td><span class='pill p-cat'>Inconsistent taxonomy</span></td><td>Same skill described differently each time</td></tr>
+<tr><td><b>F-12</b></td><td>Workday<br><small class='muted'>Samsung</small></td><td><b>Experience, education, languages</b><br>After CV upload, work history, education and languages still had to be typed in by hand (4 jobs, 1 degree, 4 languages).</td><td><span class='pill p-cat'>Re-entry</span></td><td>Same data as the CV typed again</td></tr>
+<tr><td><b>F-13</b></td><td>Phenom + Connectr<br><small class='muted'>GSK</small></td><td><b>Pre-application</b><br>An activity on a separate platform must be completed to get a code before the application form opens.</td><td><span class='pill p-cat'>Extra step / account wall</span></td><td>Second account and extra time</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>How 8 employers word the right-to-work rule</h3>
+  <p>The sharpest finding so far. Of 8 adverts read, 5 do not make clear whether a Student-visa student on an assessed placement can apply (R-01, R-03, R-05, R-07, R-08). Only Hilton names the placement case explicitly (R-02). The target is 40 adverts.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>ID</th><th>Employer</th><th>How the advert words it</th><th>Can a Student-visa placement student apply?</th><th>Clear?</th></tr></thead>
+    <tbody>
+<tr><td><b>R-01</b></td><td>Samsung UK<br><small class='muted'>Product Management Placement</small></td><td>Must have &#x27;the right to work in the UK&#x27;. No mention of placement students.</td><td>Yes in practice, but the advert doesn&#x27;t say so</td><td><span class='pill p-must'>Unclear</span></td></tr>
+<tr><td><b>R-02</b></td><td>Hilton<br><small class='muted'>Corporate placements (several)</small></td><td>Needs &#x27;independent right to work&#x27;, then explicitly lists an assessed 12-month placement as qualifying.</td><td>Yes, stated</td><td><span class='pill p-yes'>Clear</span></td></tr>
+<tr><td><b>R-03</b></td><td>Mondelez<br><small class='muted'>Marketing Placement</small></td><td>No Skilled Worker sponsorship; applicants &#x27;must already have the right to work&#x27;.</td><td>Probably yes, not stated</td><td><span class='pill p-must'>Unclear</span></td></tr>
+<tr><td><b>R-04</b></td><td>GE Aerospace UK<br><small class='muted'>12-month placements</small></td><td>Placements feed graduate roles, so &#x27;permanent right to work&#x27; is required.</td><td>No</td><td><span class='pill p-yes'>Clear</span></td></tr>
+<tr><td><b>R-05</b></td><td>American Express UK<br><small class='muted'>2027 internships</small></td><td>Work eligibility required; will not pursue visa sponsorship.</td><td>Unclear (also limited to 2028 graduates)</td><td><span class='pill p-must'>Unclear</span></td></tr>
+<tr><td><b>R-06</b></td><td>Metropolitan Police<br><small class='muted'>Counter Terrorism Policing placements</small></td><td>SC(e) vetting; some posts British nationals only.</td><td>Effectively no</td><td><span class='pill p-yes'>Clear</span></td></tr>
+<tr><td><b>R-07</b></td><td>GSK<br><small class='muted'>Industrial placements</small></td><td>Must be enrolled at a UK or ROI university; no right-to-work wording seen.</td><td>Unclear</td><td><span class='pill p-must'>Unclear</span></td></tr>
+<tr><td><b>R-08</b></td><td>Hatch (US)<br><small class='muted'>Co-op Advisory Analyst</small></td><td>Asks whether you would &#x27;now or ever in the future&#x27; need Hatch to sponsor.</td><td>Depends on visa type; Yes/No can&#x27;t capture J-1</td><td><span class='pill p-must'>Unclear</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note" style="margin-top:18px"><b>Not legal advice.</b> This project records what employers write and points to official guidance. It never tells a student whether they are eligible.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">03 · What already exists</div>
+  <h2>The idea is not new. The UK placement case is the gap.</h2>
+  <p class="sub">I am not claiming to invent portable application data. The question is whether existing standards and tools cover what a UK placement student actually gets asked.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Existing thing</th><th>What it does</th><th>Gap for a UK placement student</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>HR Open Standards</b> recruiting schemas</td><td>Industry data format for candidates and jobs, successor to HR-XML</td><td>To check: does it model placement-year right to work, UK grades, county?</td><td><span class="pill p-grey">Schema not yet read</span></td></tr>
+      <tr><td><b>Open Apply Standard</b></td><td>Reported in July 2026 as an open format so candidates need not re-enter data across platforms</td><td>Not yet known</td><td><span class="pill p-must">Single source, unverified</span></td></tr>
+      <tr><td><b>Workday "Use My Last Application"</b></td><td>Re-uses answers within one employer's Workday site</td><td>Re-uses stale answers without showing where they came from (F-05); does not cross employers (F-07, F-08)</td><td><span class="pill p-yes">Observed directly</span></td></tr>
+      <tr><td><b>CV autofill</b> in application systems</td><td>Reads an uploaded CV</td><td>Work history, education and languages still typed by hand (F-12)</td><td><span class="pill p-yes">Observed directly</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note" style="margin-top:18px"><b>Working hypothesis, not a finding yet:</b> each employer licenses its own copy of the software and owns its candidate data, so nobody in the chain is paid to make data travel between employers. The student carries the cost and has no seat at the table. Root-cause analysis (task 22) will test this.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">04 · Scope and stakeholders</div>
+  <h2>Who is involved and how I reach them</h2>
+  <div class="two" style="margin-bottom:20px">
+    <div class="panel"><b>In scope</b><p style="margin:6px 0 0;font-size:15px;color:#4a5a76">UK placement and internship applications made by Brunel students in the 2026/27 cycle; the data they are asked for; the right-to-work question; a prototype and its testing.</p></div>
+    <div class="panel"><b>Out of scope</b><p style="margin:6px 0 0;font-size:15px;color:#4a5a76">A live integration with any employer's system; legal advice on visas; graduate and US applications, except as comparison.</p></div>
+  </div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Stakeholder</th><th>What they want</th><th>What they lose or gain</th><th>How I reach them</th></tr></thead>
+    <tbody>
+      <tr><td><b>Placement students</b> (home and international)</td><td>Apply faster, without errors</td><td>Main beneficiary</td><td>Survey (30+) and 6 interviews</td></tr>
+      <tr><td><b>Brunel Professional Development Centre</b></td><td>More students placed</td><td>Can act now with guidance and a standard eligibility statement</td><td>Interview, then the recommendation</td></tr>
+      <tr><td><b>Employer early-careers teams</b></td><td>Good applicants, clean data</td><td>Fewer eligible students lost to unclear wording</td><td>One recruiter interview</td></tr>
+      <tr><td><b>Application system vendors</b> (Workday, SAP, Oracle)</td><td>Keep their own data model</td><td>Low incentive to change; standards are the lever</td><td>Desk research only</td></tr>
+      <tr><td><b>Standards bodies</b> (HR Open)</td><td>Adoption</td><td>A documented UK use case</td><td>Desk research; possibly submit the gap analysis</td></tr>
+      <tr><td><b>UK Home Office</b></td><td>Correct right-to-work checks</td><td>Not a direct participant</td><td>Published guidance only</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">05 · Plan</div>
+  <h2>Five phases, four evidence gates</h2>
+  <p class="sub">Each phase is one epic. A gate is a check, not a date: the next phase starts only when its evidence exists.</p>
+  <div class="mermaid">
+flowchart LR
+    A[1. Discovery<br/>in progress] -->|Gate: 5 timed applications,<br/>30+ survey, 6 interviews| B[2. Analysis]
+    B -->|Gate: every cause<br/>backed by evidence| C[3. Requirements]
+    C -->|Gate: every story linked<br/>to evidence| D[4. Prototype + UAT]
+    D -->|Gate: 5 UAT sessions,<br/>defects triaged| E[5. Recommendation<br/>to Brunel]
+    style A fill:#fef4e5,stroke:#8a5a12
+  </div>
+
+  <h3>Progress against the success measures</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Measure</th><th>Target</th><th>Done</th><th style="width:160px">Progress</th></tr></thead>
+    <tbody>
+      <tr><td>Own applications timed and logged</td><td>5</td><td>0</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+      <tr><td>Adverts with right-to-work wording classified</td><td>40</td><td>8</td><td><div class="bar"><i style="width:20%"></i></div></td></tr>
+      <tr><td>Survey responses</td><td>30+</td><td>0</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+      <tr><td>Student interviews</td><td>6</td><td>0</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+      <tr><td>UAT sessions, time with and without the prototype</td><td>5 students</td><td>0</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+      <tr><td>Recommendation presented to Brunel PDC</td><td>Yes, with written feedback</td><td>No</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">06 · Backlog</div>
+  <h2>The full backlog: 29 items</h2>
+  <p class="sub">Written so it imports straight into a Jira project. User stories use Given / When / Then acceptance criteria. Every story starts as a hypothesis and moves to Ready only once it is linked to evidence (an F, R or A row, a survey answer or an interview quote).</p>
+<details class='epic' open><summary><span class='id'>EPIC 1</span> Discovery: measure the real cost of re-entering the same data <span class='pill p-should'>In progress</span> <span class='count'>8 items</span></summary><p class='epicdesc'>Find out how much time and how many errors students lose by re-typing the same profile into different application systems. Evidence only: own logs, survey, interviews, documents.</p>
+<div class='story'><div class='id'>TASK 11 · Highest priority </div><div class='txt'>Time and log my next 5 applications</div><p class='d'>For each application record minutes from start to submit, number of fields re-typed that were already in my CV, new accounts needed, and any errors. Log as A-xx rows in the evidence log.</p><div class='ac'>Acceptance criteria</div><ul><li>5 rows complete with no blank Minutes or Fields re-typed</li><li>Every friction point logged as an F-xx row</li></ul></div>
+<div class='story'><div class='id'>TASK 12 · High priority </div><div class='txt'>Field audit of 6 application systems</div><p class='d'>Complete the FieldOverlap sheet for Workday, SuccessFactors, Oracle, Phenom, Breezy and one more. Use real forms only.</p><div class='ac'>Acceptance criteria</div><ul><li>Every cell is Y, N or ? (no blanks)</li><li>Count column shows how many systems ask for each item</li></ul></div>
+<div class='story'><div class='id'>TASK 13 · High priority </div><div class='txt'>Collect right-to-work wording from 40 placement adverts</div><p class='d'>Use Brunel&#x27;s placement board, RateMyPlacement and Gradcracker. Record wording, whether a Student-visa placement student qualifies, and whether that is clear. Extend the RightToWork sheet (8 rows already).</p><div class='ac'>Acceptance criteria</div><ul><li>40 rows total</li><li>Each row has a source and date</li><li>Share of unclear adverts calculated</li></ul></div>
+<div class='story'><div class='id'>TASK 14 · Highest priority </div><div class='txt'>Design and run the student survey (target 30 responses)</div><p class='d'>Google Form. Ask about number of applications, time per application, systems used, accounts created, errors, and right-to-work confusion. Share in course group chats and Brunel societies. No personal data beyond course and year.</p><div class='ac'>Acceptance criteria</div><ul><li>30+ responses</li><li>Raw export saved</li><li>Question wording frozen before sending</li></ul></div>
+<div class='story'><div class='id'>TASK 15 · High priority </div><div class='txt'>Interview 6 students (3 international, 3 home)</div><p class='d'>30 minutes each, same script. Ask them to show you a real application they completed. Notes stored with consent.</p><div class='ac'>Acceptance criteria</div><ul><li>6 interview notes</li><li>Each quote tagged to a theme</li></ul></div>
+<div class='story'><div class='id'>TASK 16 · High priority </div><div class='txt'>Stakeholder interview: Brunel placements team (Karen Auld)</div><p class='d'>Ask what employers and students most often get wrong about placement eligibility, and what the PDC already provides (e.g. placement letter).</p><div class='ac'>Acceptance criteria</div><ul><li>Notes agreed with interviewee</li><li>At least one constraint or idea captured</li></ul></div>
+<div class='story'><div class='id'>TASK 17 · Medium priority </div><div class='txt'>Reach one early-careers recruiter for a 20-minute interview</div><p class='d'>LinkedIn outreach to early-careers teams. Goal: the employer&#x27;s side of the problem (why forms ask what they ask).</p><div class='ac'>Acceptance criteria</div><ul><li>One interview completed, or outreach log showing 15+ attempts</li></ul></div>
+<div class='story'><div class='id'>TASK 18 · High priority </div><div class='txt'>Desk research: standards and features that already exist</div><p class='d'>HR Open Standards recruiting schema; the reported Open Apply Standard (July 2026, verify from a primary source); Workday&#x27;s &#x27;Use My Last Application&#x27;; UK Home Office guidance on students working on placements.</p><div class='ac'>Acceptance criteria</div><ul><li>One-page summary with sources</li><li>Each claim linked to a primary source or marked unverified</li></ul></div>
+</details>
+<details class='epic'><summary><span class='id'>EPIC 2</span> Analysis: why the problem exists and who can fix it <span class='pill p-grey'>Not started</span> <span class='count'>5 items</span></summary><p class='epicdesc'>Process map, root causes, stakeholders and gap analysis against existing standards.</p>
+<div class='story'><div class='id'>TASK 21 · High priority </div><div class='txt'>As-is process map of one placement application</div><p class='d'>BPMN map from finding an advert to submitting, using A-xx logs. Mark every re-entry step and every point where data can go wrong.</p><div class='ac'>Acceptance criteria</div><ul><li>Map reviewed by 2 students who recognise it</li></ul></div>
+<div class='story'><div class='id'>TASK 22 · High priority </div><div class='txt'>Root-cause analysis: why students re-type the same data</div><p class='d'>Fishbone plus 5 whys. Separate technology causes (separate employer tenants) from business causes (employers want their own data).</p><div class='ac'>Acceptance criteria</div><ul><li>Each cause backed by an F-xx row, interview quote or source</li></ul></div>
+<div class='story'><div class='id'>TASK 23 · Medium priority </div><div class='txt'>Stakeholder map</div><p class='d'>Students, careers services, employer early-careers teams, ATS vendors, standards bodies, Home Office. Power/interest grid with what each one gains or loses.</p><div class='ac'>Acceptance criteria</div><ul><li>Every stakeholder has an interest and an influence rating with a reason</li></ul></div>
+<div class='story'><div class='id'>TASK 24 · High priority </div><div class='txt'>Quantify the cost</div><p class='d'>Time per application and fields re-typed, from own logs and the survey. Report median and range, not just an average. No invented figures.</p><div class='ac'>Acceptance criteria</div><ul><li>Every number traces to the evidence log or survey export</li></ul></div>
+<div class='story'><div class='id'>TASK 25 · High priority </div><div class='txt'>Gap analysis: UK placement data vs existing standards</div><p class='d'>Compare the FieldOverlap items against the HR Open Standards schema. Highlight UK-specific gaps: placement right to work, UK grades, county, placement year.</p><div class='ac'>Acceptance criteria</div><ul><li>Table of covered, partly covered and missing items</li></ul></div>
+</details>
+<details class='epic' open><summary><span class='id'>EPIC 3</span> Requirements: what an apply-once solution must do <span class='pill p-could'>Drafted as hypotheses</span> <span class='count'>6 items</span></summary><p class='epicdesc'>User stories with acceptance criteria. Every story starts as a hypothesis and must be linked to evidence (F-xx, R-xx, survey or interview) before it moves to Ready.</p>
+<div class='story'><div class='id'>STORY 31 · High priority <span class='pill p-could'>Hypothesis</span></div><div class='txt'>Standard right-to-work statement for placement students</div><p class='d'>As an international student applying for a UK placement, I want a standard eligibility statement that employers recognise, so that I can answer right-to-work questions accurately.</p><p class='d'>Evidence: R-01 to R-08.</p><div class='ac'>Acceptance criteria</div><ul><li>Given an advert asks about right to work</li><li>When the student attaches the standard statement</li><li>Then the employer can see the placement is a required, assessed part of the degree and no sponsorship is needed</li><li>And the statement names the university and the visa expiry date</li></ul></div>
+<div class='story'><div class='id'>STORY 32 · Highest priority <span class='pill p-could'>Hypothesis</span></div><div class='txt'>Enter profile once, re-use everywhere</div><p class='d'>As a student, I want my education, work history and languages stored once in a portable format, so that any application form can be pre-filled.</p><p class='d'>Evidence: F-12.</p><div class='ac'>Acceptance criteria</div><ul><li>Given a student has a saved profile</li><li>When they open a new application</li><li>Then work history, education and languages are pre-filled</li><li>And every pre-filled field can be edited before submitting</li></ul></div>
+<div class='story'><div class='id'>STORY 33 · High priority <span class='pill p-could'>Hypothesis</span></div><div class='txt'>Show where a pre-filled answer came from</div><p class='d'>As a student, I want to see which earlier application a pre-filled answer came from, so that I don&#x27;t submit stale answers.</p><p class='d'>Evidence: F-05.</p><div class='ac'>Acceptance criteria</div><ul><li>Given a field was pre-filled from an earlier application</li><li>When the form loads</li><li>Then the field is marked with its source and date</li><li>And the student must confirm it before submitting</li></ul></div>
+<div class='story'><div class='id'>STORY 34 · Medium priority <span class='pill p-could'>Hypothesis</span></div><div class='txt'>Record UK grades in UK format</div><p class='d'>As a UK student applying abroad, I want to give my grade in its UK form with an official explanation, so that I am not forced into a GPA conversion.</p><p class='d'>Evidence: F-02, F-03.</p><div class='ac'>Acceptance criteria</div><ul><li>Given a form asks for a GPA</li><li>When the student&#x27;s institution uses UK marking</li><li>Then the student can enter the UK mark and classification</li><li>And the form shows a link to an official explanation of the scale</li></ul></div>
+<div class='story'><div class='id'>STORY 35 · Medium priority <span class='pill p-could'>Hypothesis</span></div><div class='txt'>Common &#x27;how did you hear&#x27; list that includes university boards</div><p class='d'>As an early-careers recruiter, I want a standard source list that includes university job boards, so that I can measure which boards bring applicants.</p><p class='d'>Evidence: F-09.</p><div class='ac'>Acceptance criteria</div><ul><li>Given a candidate found the role on a university board</li><li>When they answer the source question</li><li>Then they can choose &#x27;University careers service&#x27; and name the university</li></ul></div>
+<div class='story'><div class='id'>STORY 36 · High priority </div><div class='txt'>Profile consent and data minimisation (UK GDPR)</div><p class='d'>As a student, I want to choose which parts of my profile each employer sees, so that I share only what the role needs.</p><div class='ac'>Acceptance criteria</div><ul><li>Given a saved profile</li><li>When the student applies</li><li>Then they see exactly which fields will be shared</li><li>And equality data is never shared unless they opt in for that application</li></ul></div>
+</details>
+<details class='epic'><summary><span class='id'>EPIC 4</span> Prototype and user acceptance testing <span class='pill p-grey'>Not started</span> <span class='count'>3 items</span></summary><p class='epicdesc'>Build a low-cost prototype of a student application passport and test it with real students against a timed baseline.</p>
+<div class='story'><div class='id'>TASK 41 · Medium priority </div><div class='txt'>Build the student application passport prototype</div><p class='d'>One portable profile file plus a one-page viewer that shows what would be pre-filled. No live integration with real employer systems.</p><div class='ac'>Acceptance criteria</div><ul><li>Prototype covers stories 31, 32 and 33</li><li>Runs without an account</li></ul></div>
+<div class='story'><div class='id'>TASK 42 · Medium priority </div><div class='txt'>Write the UAT plan and test scripts</div><p class='d'>Test cases traced to the acceptance criteria of stories 31 to 36. Define the timed baseline task.</p><div class='ac'>Acceptance criteria</div><ul><li>Every acceptance criterion has at least one test case</li></ul></div>
+<div class='story'><div class='id'>TASK 43 · Medium priority </div><div class='txt'>Run UAT with 5 students and log defects</div><p class='d'>Each student completes the baseline task with and without the prototype. Record times, errors and comments. Log defects as Bugs.</p><div class='ac'>Acceptance criteria</div><ul><li>5 sessions completed</li><li>Results table with time with and without</li><li>Defects logged and triaged</li></ul></div>
+</details>
+<details class='epic'><summary><span class='id'>EPIC 5</span> Recommendation and showcase <span class='pill p-grey'>Not started</span> <span class='count'>2 items</span></summary><p class='epicdesc'>Turn findings into a recommendation for Brunel&#x27;s Professional Development Centre and a public case study.</p>
+<div class='story'><div class='id'>TASK 51 · High priority </div><div class='txt'>Write a 2-page recommendation for Brunel PDC</div><p class='d'>What Brunel could do now: a standard eligibility statement, guidance for international placement students, and a tracked list of employers with unclear wording.</p><div class='ac'>Acceptance criteria</div><ul><li>Shared with Karen Auld</li><li>Her feedback recorded</li></ul></div>
+<div class='story'><div class='id'>TASK 52 · Medium priority </div><div class='txt'>Publish the case study on the portfolio site</div><p class='d'>Problem, evidence, analysis, requirements, prototype, UAT results, what I got wrong. Link the Jira board screenshot.</p><div class='ac'>Acceptance criteria</div><ul><li>Every number traces to the evidence log</li><li>Includes a &#x27;what I got wrong&#x27; section</li></ul></div>
+</details>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">07 · Working rules</div>
+  <h2>How I keep this honest</h2>
+  <div class="panel">
+    <p><b>Every number traces to a source.</b> A row in the evidence log, the survey export, or a cited publication. Blank is better than guessed.</p>
+    <p><b>Hypotheses are labelled as hypotheses</b> until evidence moves them to Ready.</p>
+    <p style="margin-bottom:0"><b>Sources are checked before they are claimed.</b> The Open Apply Standard has one press source so far. Until a primary source confirms it, it stays marked unverified, and if it turns out not to exist the gap analysis uses HR Open's published schemas instead.</p>
+  </div>
+  <h3>What I got wrong so far</h3>
+  <div class="panel">
+    <p style="margin-bottom:0"><b>Two problems I first logged were not the platforms' fault.</b> Doubled dates in one SuccessFactors form and an address that would not save on one Workday form both turned out to come from the automated typing I used to fill the forms, not from the application systems. I removed both from the log. The lesson: before blaming a system, rule out your own tools.</p>
+  </div>
+</div></section>
+
+<footer><div class="inner">
+  <p style="margin-bottom:10px;color:#fff;font-size:19px;font-weight:650">Abdeali Moiz</p>
+  <p>Seeking a 12-month business analyst placement, June 2027 to September 2028.</p>
+  <p style="margin-bottom:0"><a href="mailto:abdealimoiz05@gmail.com">abdealimoiz05@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/abdeali-moiz">LinkedIn</a> &nbsp;·&nbsp; <a href="./">Back to portfolio</a></p>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#eef3fb',primaryTextColor:'#16233a',primaryBorderColor:'#2f4f8f',lineColor:'#7d8ba8',fontSize:'13px',fontFamily:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'}});
+</script>
+</body>
+</html>
