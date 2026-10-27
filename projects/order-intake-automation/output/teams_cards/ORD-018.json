@@ -1,0 +1,41 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-018",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Pennine Automotive plc \u00b7 PO missing",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Missing Po",
+                "value": "No purchase order number"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Ask the buyer for the PO before booking",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}

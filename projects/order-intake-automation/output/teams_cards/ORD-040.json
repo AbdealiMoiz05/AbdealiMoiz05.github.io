@@ -1,0 +1,41 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-040",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Midlands Commercial Vehicles \u00b7 PO 45591847",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Low Confidence",
+                "value": "Unsure about: correction_in_thread"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Check the original document",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}

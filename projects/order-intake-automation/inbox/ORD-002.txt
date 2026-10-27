@@ -1,0 +1,20 @@
+From: Priya Shah <purchasing@northfield-motors.example>
+To: orders@supplier.example
+Subject: New purchase order - Northfield Motors
+Date: 30/10/2026
+
+Hello,
+
+Please find our order below. PO number: 45194246
+Deliver to: Northfield Motors Ltd, Gate 4, Coventry CV6 5RS
+
+Line | Part No  | Description                       |    Qty | Unit price | Required by
+1    | BP-2201  | Part as per drawing               |    150 | £   16.19 | 12/12/2026
+2    | HRN-9100 | Horn, dual tone 12V               |     30 | £    8.45 | 10/12/2026
+3    | BAT-9500 | EV battery cell monitor board     |    128 | £   47.52 | 04/01/2027
+4    | STR-6700 | Starter motor, 1.4kW              |      4 | £   86.24 | 13/01/2027
+
+Please confirm receipt.
+Kind regards,
+Priya Shah
+Purchasing, Northfield Motors Ltd

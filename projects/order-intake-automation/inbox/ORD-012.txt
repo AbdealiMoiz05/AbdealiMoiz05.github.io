@@ -1,0 +1,15 @@
+From: Tom Hughes <t.hughes@severn-va.example>
+To: orders@supplier.example
+Subject: parts for next month
+Date: 31/10/2026
+
+Hi all,
+
+Hope you're well. Could you get the following over to the Swindon line please:
+68 x brake disc (BD-2300) at £25.67 each, needed by the 29th November;
+9 x engine control unit (ECU-7710) at £355.12 each, needed by the 19th January.
+
+Our ref is 45258297. Same delivery address as usual. Shout if anything's a problem.
+
+Cheers,
+Tom

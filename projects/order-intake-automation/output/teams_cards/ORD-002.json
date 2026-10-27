@@ -1,0 +1,41 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-002",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Northfield Motors Ltd \u00b7 PO 45194246",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Unknown Part",
+                "value": "BP-2201 is not a catalogue part"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Closest catalogue parts: BP-2215 or BP-2210. Confirm with the buyer",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}

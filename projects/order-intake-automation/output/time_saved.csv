@@ -1,0 +1,5 @@
+scenario,review_rate_pct,manual_hours_per_week,automated_hours_per_week,hours_saved_per_week,hours_saved_per_year,fte_equivalent
+Low (4 min manual),43.9,22.3,14.3,8.0,370,0.21
+Base,43.9,34.8,14.3,20.5,945,0.55
+High (10 min manual),43.9,47.3,14.3,33.0,1520,0.88
+Base + AI reads threads*,31.7,34.8,11.7,23.1,1062,0.62

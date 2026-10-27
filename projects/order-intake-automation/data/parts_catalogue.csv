@@ -1,0 +1,21 @@
+part_no,description,list_price_gbp,pack_size,lead_time_days
+SP-1001,"Spark plug, iridium",4.2,50,7
+SP-1002,"Spark plug, double platinum",3.1,50,7
+BP-2210,"Brake pad set, front axle",18.4,10,14
+BP-2215,"Brake pad set, rear axle",15.75,10,14
+BD-2300,"Brake disc, vented 320mm",27.9,4,21
+WB-3300,"Wiper blade, flat 600mm",6.8,20,7
+WB-3320,"Wiper blade, rear 350mm",4.95,20,7
+INJ-4410,"Fuel injector, petrol direct",64.0,6,28
+INJ-4420,"Fuel injector, diesel common rail",112.5,6,35
+SEN-5520,"Lambda sensor, wideband",38.25,12,14
+SEN-5530,"Wheel speed sensor, ABS",21.6,12,14
+SEN-5540,"Parking sensor, ultrasonic",17.3,24,21
+ALT-6600,"Alternator, 150A",142.0,2,42
+STR-6700,"Starter motor, 1.4kW",98.0,2,42
+ECU-7710,"Engine control unit, gen 4",386.0,1,56
+FIL-8801,"Oil filter, cartridge",3.45,40,7
+FIL-8810,"Cabin air filter, carbon",7.9,25,7
+FIL-8820,"Fuel filter, diesel",11.2,20,14
+HRN-9100,"Horn, dual tone 12V",9.6,10,14
+BAT-9500,EV battery cell monitor board,54.0,8,49

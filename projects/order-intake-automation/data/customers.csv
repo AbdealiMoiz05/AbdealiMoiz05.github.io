@@ -1,0 +1,6 @@
+customer_id,customer_name,site,contract_discount_pct,order_format,email_domain
+C01,Northfield Motors Ltd,Coventry,12.0,table_email,northfield-motors.example
+C02,Severn Vehicle Assembly,Swindon,8.0,free_text_email,severn-va.example
+C03,Pennine Automotive plc,Sunderland,15.0,pdf_po,
+C04,Thames Valley EV Ltd,Oxford,5.0,csv_paste,tvev.example
+C05,Midlands Commercial Vehicles,Leyland,10.0,amended_email,mcv-leyland.example

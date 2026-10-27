@@ -1,0 +1,13 @@
+From: Amira Okafor <supply@tvev.example>
+To: orders@supplier.example
+Subject: TVEV call-off 45436230
+Date: 31/10/2026
+
+Call-off below (export from our MRP, semicolon separated).
+
+PO;PART;QTY;PRICE;DATE
+45436230;HRN-9109;60;9.12;2026-11-29
+45436230;BP-2215;160;14.96;2026-11-29
+45436230;FIL-8801;400;3.28;2026-12-05
+
+Amira

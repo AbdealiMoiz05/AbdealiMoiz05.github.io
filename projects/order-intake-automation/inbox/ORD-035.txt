@@ -1,0 +1,16 @@
+From: Dan Whitfield <d.whitfield@mcv-leyland.example>
+To: orders@supplier.example
+Subject: RE: FW: Order 45573891
+Date: 02/11/2026
+
+Sorry, correction to the order below: line 1 (WB-3300) should be 200, not 300. Everything else stands.
+
+Dan
+
+-----Original message-----
+From: Dan Whitfield
+Subject: FW: Order 45573891
+
+Please supply against order 45573891:
+  - WB-3300  qty 300  @ £6.12  by 28/11/2026
+Deliver to Leyland plant, goods in bay 2.

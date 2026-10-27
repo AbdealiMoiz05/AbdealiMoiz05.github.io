@@ -1,0 +1,20 @@
+From: Priya Shah <purchasing@northfield-motors.example>
+To: orders@supplier.example
+Subject: New purchase order - Northfield Motors
+Date: 02/11/2026
+
+Hello,
+
+Please find our order below. PO number: 45125381
+Deliver to: Northfield Motors Ltd, Gate 4, Coventry CV6 5RS
+
+Line | Part No  | Description                       |    Qty | Unit price | Required by
+1    | SEN-5530 | Wheel speed sensor, ABS           |    228 | £   19.01 | 11/12/2026
+2    | BP-2215  | Brake pad set, rear axle          |     40 | £   13.86 | 28/11/2026
+3    | SEN-5520 | Lambda sensor, wideband           |    192 | £   33.66 | 03/12/2026
+4    | INJ-4420 | Fuel injector, diesel common rail |     66 | £   99.00 | 26/12/2026
+
+Please confirm receipt.
+Kind regards,
+Priya Shah
+Purchasing, Northfield Motors Ltd

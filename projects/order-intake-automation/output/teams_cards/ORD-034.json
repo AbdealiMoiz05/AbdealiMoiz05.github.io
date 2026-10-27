@@ -1,0 +1,45 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-034",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Midlands Commercial Vehicles \u00b7 PO 45513703",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Low Confidence",
+                "value": "Unsure about: correction_in_thread"
+              },
+              {
+                "title": "Pack Size",
+                "value": "FIL-8810: 378 is not a multiple of the pack size 25"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Check the original document; Round to 400 or 375, and confirm with the buyer",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}

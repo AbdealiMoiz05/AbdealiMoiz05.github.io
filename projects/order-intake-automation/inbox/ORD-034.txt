@@ -1,0 +1,19 @@
+From: Dan Whitfield <d.whitfield@mcv-leyland.example>
+To: orders@supplier.example
+Subject: RE: FW: Order 45513703
+Date: 02/11/2026
+
+Sorry, correction to the order below: line 1 (FIL-8810) should be 253, not 378. Everything else stands.
+
+Dan
+
+-----Original message-----
+From: Dan Whitfield
+Subject: FW: Order 45513703
+
+Please supply against order 45513703:
+  - FIL-8810  qty 378  @ £7.11  by 22/11/2026
+  - ALT-6600  qty 8  @ £127.80  by 20/12/2026
+  - SEN-5530  qty 48  @ £19.44  by 04/12/2026
+  - WB-3300  qty 140  @ £6.12  by 25/11/2026
+Deliver to Leyland plant, goods in bay 2.
