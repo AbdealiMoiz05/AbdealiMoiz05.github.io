@@ -1,0 +1,27 @@
+{
+  "orders": 41,
+  "read_exactly_right": 33,
+  "field_accuracy_pct": 98.5,
+  "orders_read_wrong": [
+    "ORD-033",
+    "ORD-034",
+    "ORD-035",
+    "ORD-036",
+    "ORD-037",
+    "ORD-038",
+    "ORD-039",
+    "ORD-040"
+  ],
+  "planted_problems": 13,
+  "planted_problems_caught": 13,
+  "missed": [],
+  "clean_orders_sent_to_review": 5,
+  "clean_orders_sent_to_review_ids": [
+    "ORD-033",
+    "ORD-035",
+    "ORD-036",
+    "ORD-038",
+    "ORD-040"
+  ],
+  "wrongly_read_but_auto_approved": []
+}

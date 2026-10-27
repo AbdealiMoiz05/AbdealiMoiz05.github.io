@@ -1,0 +1,18 @@
+From: Dan Whitfield <d.whitfield@mcv-leyland.example>
+To: orders@supplier.example
+Subject: RE: FW: Order TBC
+Date: 30/10/2026
+
+Sorry, correction to the order below: line 1 (FIL-8820) should be 200, not 300. Everything else stands.
+
+Dan
+
+-----Original message-----
+From: Dan Whitfield
+Subject: FW: Order TBC
+
+Please supply against order TBC:
+  - FIL-8820  qty 300  @ £10.08  by 19/11/2026
+  - INJ-4410  qty 96  @ £57.60  by 03/12/2026
+  - SP-1001  qty 750  @ £3.78  by 17/11/2026
+Deliver to Leyland plant, goods in bay 2.

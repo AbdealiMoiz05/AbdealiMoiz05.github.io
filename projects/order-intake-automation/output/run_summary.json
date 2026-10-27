@@ -1,0 +1,20 @@
+{
+  "orders": 41,
+  "auto_approved": 23,
+  "sent_to_review": 18,
+  "issues": 21,
+  "issues_by_check": {
+    "MISSING_PO": 2,
+    "LOW_CONFIDENCE": 8,
+    "DUPLICATE_PO": 1,
+    "UNKNOWN_PART": 2,
+    "PRICE_MISMATCH": 3,
+    "PACK_SIZE": 2,
+    "LEAD_TIME": 2,
+    "UNUSUAL_QTY": 1
+  },
+  "value_auto_approved_gbp": 138573.51,
+  "value_held_for_review_gbp": 313804.18,
+  "read_by_ai": 0,
+  "flagged_only_for_low_confidence": 5
+}

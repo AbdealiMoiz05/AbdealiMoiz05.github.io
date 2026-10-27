@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Intake Automation — Abdeali Moiz</title>
+<meta name="description" content="Personal project: an AI and Python pipeline that reads messy customer purchase orders, checks them against master data, routes doubtful ones to a person in Teams, and puts a number on the time saved.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:#16233a;background:#fbfcfe;line-height:1.65;-webkit-font-smoothing:antialiased}
+.inner{max-width:880px;margin:0 auto;padding:0 28px}
+a{color:#2f4f8f}
+nav{background:#16233a;padding:15px 0;position:sticky;top:0;z-index:50}
+nav .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+nav a{color:#c3cfe6;text-decoration:none;font-size:15px}
+nav a:hover{color:#fff}
+nav .name{color:#fff;font-weight:650}
+.hero{background:#16233a;color:#fff;padding:50px 0 54px}
+.kicker{font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8fa5cc;font-weight:650;margin-bottom:12px}
+.hero h1{font-size:36px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:14px}
+.hero p{color:#c3cfe6;font-size:18px;max-width:660px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2b3a5a;margin-top:32px;border-radius:8px;overflow:hidden}
+.stat{background:#1d2c48;padding:17px 15px}
+.stat b{display:block;font-size:23px;color:#fff;font-weight:700}
+.stat span{font-size:12.5px;color:#8fa5cc}
+section{padding:50px 0;border-bottom:1px solid #e4e9f2}
+.eyebrow{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:10px}
+h2{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px}
+h3{font-size:18px;font-weight:650;margin:26px 0 8px}
+p{margin-bottom:14px}
+.sub{color:#5b6b88;font-size:16.5px;margin-bottom:24px}
+.panel{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:24px}
+.mermaid{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:22px;overflow-x:auto;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden}
+th{background:#f4f7fc;text-align:left;padding:11px 13px;font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:#5b6b88;font-weight:650;border-bottom:1px solid #e4e9f2}
+td{padding:11px 13px;border-bottom:1px solid #eef1f6;vertical-align:top;color:#33425e}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto}
+.pill{display:inline-block;font-size:11.5px;font-weight:650;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.p-must{background:#fdeceb;color:#a3372f}.p-should{background:#fef4e5;color:#8a5a12}.p-could{background:#eef3fb;color:#2f4f8f}
+.story{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:19px 21px;margin-bottom:13px}
+.story .id{font-size:11.5px;font-weight:700;color:#7d8ba8;letter-spacing:1px}
+.story .txt{font-size:16px;margin:6px 0 12px}
+.story .ac{font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:#7d8ba8;font-weight:650;margin-bottom:6px}
+.story ul{margin:0 0 0 18px;font-size:14.5px;color:#4a5a76}
+.story li{margin-bottom:4px}
+.chartbox{background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:20px;height:300px;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{padding:14px 16px;background:#fff8ec;border-left:3px solid #e0a94a;font-size:14.5px;color:#6b5325;border-radius:0 6px 6px 0}
+.quote{padding:18px 22px;background:#f4f7fc;border-left:3px solid #2f4f8f;font-size:16.5px;color:#33425e;border-radius:0 8px 8px 0;font-style:italic}
+.matrix{display:grid;grid-template-columns:130px 1fr 1fr;gap:1px;background:#e4e9f2;border:1px solid #e4e9f2;border-radius:10px;overflow:hidden;font-size:14px}
+.matrix>div{background:#fff;padding:14px}
+.matrix .hd,.matrix .rl{background:#f4f7fc;font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:#5b6b88;font-weight:650;display:flex;align-items:center}
+.matrix b{display:block;font-size:13.5px;margin-bottom:2px}
+.matrix small{color:#7d8ba8;font-size:12.5px;display:block}
+.steps{counter-reset:s}
+.step{position:relative;padding-left:46px;margin-bottom:22px;counter-increment:s}
+.step:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;background:#16233a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:650}
+.step b{display:block;font-size:16.5px;margin-bottom:3px}
+.step p{font-size:15px;color:#4a5a76;margin:0}
+footer{background:#16233a;color:#c3cfe6;padding:42px 0;font-size:15.5px}
+footer a{color:#fff}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.hero h1{font-size:27px}h2{font-size:22px}.matrix{grid-template-columns:1fr}.matrix .rl{padding:8px 14px}}
+code{font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#f4f7fc;padding:1px 5px;border-radius:4px}
+pre{background:#16233a;color:#e4e9f2;border-radius:10px;padding:16px 18px;font-size:13px;overflow-x:auto;line-height:1.5;margin-bottom:14px}
+pre code{background:none;padding:0;color:inherit}
+.good{color:#1f7a4d;font-weight:650}
+</style>
+</head>
+<body>
+
+<nav><div class="inner"><a class="name" href="./">Abdeali Moiz</a><span><a href="./">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:abdealimoiz05@gmail.com">Contact</a></span></div></nav>
+
+<div class="hero"><div class="inner">
+  <div class="kicker">Automation case study · Personal project · Synthetic data</div>
+  <h1>Reading customer orders so the order desk doesn't have to</h1>
+  <p>Car makers send purchase orders in whatever format suits them. Someone types each one in and checks it by hand. I built a pipeline that reads them with rules and AI, checks every line against master data, and sends only the doubtful ones to a person in Teams.</p>
+  <div class="stats">
+    <div class="stat"><b>41</b><span>Orders in 5 formats</span></div>
+    <div class="stat"><b>13 / 13</b><span>Planted problems caught</span></div>
+    <div class="stat"><b>0</b><span>Wrong orders auto-approved</span></div>
+    <div class="stat"><b>~20 h</b><span>Saved a week (modelled)</span></div>
+  </div>
+</div></div>
+
+<section><div class="inner">
+  <div class="eyebrow">01 — Problem</div>
+  <h2>Every customer orders differently</h2>
+  <p class="sub">A parts supplier selling to UK vehicle makers gets orders as email tables, chatty emails, PDF purchase orders, pasted spreadsheet rows, and email threads where the buyer corrects a quantity two messages later.</p>
+  <div class="panel">
+    <p>Each order has to be read, keyed into the ERP and checked: is the part number real, is the price the contract price, is the quantity a whole number of packs, can we actually make the date? Doing this by hand is slow, and mistakes don't show up until much later, as a credit note, a re-invoice or a payment held in dispute.</p>
+    <p style="margin-bottom:0"><b>The question I set out to answer:</b> which orders can be booked safely without a person, which ones genuinely need one, and how much time does that free up?</p>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">02 — Process</div>
+  <h2>From inbox to booked order</h2>
+  <p class="sub">The AI only reads. Every business rule is plain, testable code, and nothing is booked or changed without passing every check.</p>
+  <div class="mermaid">
+flowchart LR
+    A[Inbox<br/>emails + PDFs] --> B{Rules reader<br/>confident?}
+    B -- yes --> D[Checks against<br/>parts and contracts]
+    B -- no --> C[Claude API reads<br/>the document<br/>fixed JSON schema]
+    C --> D
+    D -- all pass --> E[Approved<br/>ready to book]
+    D -- any fail --> F[Review queue<br/>with suggested fix]
+    F --> G[Teams card +<br/>SharePoint list]
+    G --> H[Person decides]
+    style E fill:#e8f5ee,stroke:#1f7a4d,color:#1f7a4d
+    style F fill:#fef4e5,stroke:#8a5a12
+    style G fill:#fef4e5,stroke:#8a5a12
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">03 — What I built</div>
+  <h2>Six steps, each one a small Python script</h2>
+  <div class="steps" style="margin-top:22px">
+    <div class="step"><b>Synthetic data with an answer key</b><p>Five fictional vehicle makers, a 20-part catalogue with contract discounts, pack sizes and lead times, and 41 orders written in each customer's own format, including real PDFs. I planted 13 known problems so accuracy could be measured, not guessed.</p></div>
+    <div class="step"><b>Reading: rules first, AI where it's needed</b><p>A free rules reader handles the tidy formats and marks anything it can't handle safely, such as a correction later in a thread, as low confidence. Those orders go to the Claude API, which reads the email or PDF and must return JSON matching a fixed schema. Unreadable fields come back empty and listed, never guessed.</p></div>
+    <div class="step"><b>Nine checks in SQLite</b><p>Missing PO, unknown customer, unknown part (with the nearest catalogue match), contract price, pack size, lead time, unusual quantity, duplicate PO, and reading confidence.</p></div>
+    <div class="step"><b>Routing with a person in the loop</b><p>Clean orders are approved. Anything else goes to a review queue with a suggested fix, such as "round to 750 or 700 and confirm with the buyer" or "offer 21 December, or escalate for an expedite".</p></div>
+    <div class="step"><b>Teams and SharePoint</b><p>Each flagged order becomes a Microsoft Teams Adaptive Card, plus an Excel table that a Power Automate flow loads into a SharePoint review list with an owner and a status.</p></div>
+    <div class="step"><b>Measurement and time saved</b><p>An evaluation script scores the run against the answer key, and a model turns the measured review rate into hours saved, with every assumption in one editable file.</p></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">04 — Results</div>
+  <h2>What the rules-only run got right, and where it stopped</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Measure</th><th>Result</th></tr>
+    <tr><td>Orders read exactly right</td><td>33 of 41 (98.5% of fields)</td></tr>
+    <tr><td>Planted problems caught</td><td class="good">13 of 13</td></tr>
+    <tr><td>Wrongly read orders that were auto-approved</td><td class="good">0</td></tr>
+    <tr><td>Orders sent to a person</td><td>18 of 41</td></tr>
+    <tr><td>Clean orders sent to a person anyway</td><td>5, all correction threads</td></tr>
+  </table></div>
+  <h3>The finding that shaped the design</h3>
+  <div class="panel">
+    <p>All 8 orders the rules reader got wrong came from one customer whose buyer corrects quantities in a later email. The reader couldn't follow the correction, but it noticed one was there and sent the order to a person rather than booking the wrong number. So the cost of the rules approach is review time, not bad orders.</p>
+    <p style="margin-bottom:0">That pointed to where AI is worth paying for: not every order, only the 20% the cheap method can't handle. The pipeline's hybrid mode does exactly that.</p>
+  </div>
+  <h3>A flagged order, as the team would see it</h3>
+<pre><code>Order needs review: ORD-010
+Severn Vehicle Assembly · PO 45218231
+Pack Size   SP-1001: 703 is not a multiple of the pack size 50
+Suggested next step: Round to 750 or 700, and confirm with the buyer</code></pre>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">05 — Value</div>
+  <h2>Putting a number on time saved</h2>
+  <p class="sub">At 250 orders a week. The review rate is measured; the minutes are assumptions, written down so anyone can change them.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Scenario</th><th>Manual h/week</th><th>Automated h/week</th><th>Saved h/week</th><th>Saved h/year</th></tr>
+    <tr><td>Low (4 min per order by hand)</td><td>22.3</td><td>14.3</td><td>8.0</td><td>370</td></tr>
+    <tr><td><b>Base (7 min)</b></td><td>34.8</td><td>14.3</td><td><b>20.5</b></td><td><b>945</b></td></tr>
+    <tr><td>High (10 min)</td><td>47.3</td><td>14.3</td><td>33.0</td><td>1,520</td></tr>
+    <tr><td>Base, if AI reads the correction threads (not yet measured)</td><td>34.8</td><td>11.7</td><td>23.1</td><td>1,062</td></tr>
+  </table></div>
+  <p style="margin-top:16px">Manual time includes 45 minutes of rework for each keying mistake that reaches a customer (3% of orders). Automated time includes 6 minutes per flagged order and a 1-minute spot check on approved ones.</p>
+  <div class="note">The synthetic inbox has far more problems in it than a real one, so the review rate here (44%) is high. On a real team, the first step would be to time 20 orders by hand and replace the assumptions.</div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">06 — Decisions</div>
+  <h2>Why it's built this way</h2>
+  <div class="two">
+    <div class="panel"><b>The AI reads; Python checks.</b><p style="margin:6px 0 0">Business rules belong in code that can be tested and audited, not in a prompt.</p></div>
+    <div class="panel"><b>A person in the loop.</b><p style="margin:6px 0 0">The system never edits an order. It explains what's wrong and suggests a fix.</p></div>
+    <div class="panel"><b>Measure, don't claim.</b><p style="margin:6px 0 0">The answer key turns "it works" into a number, and shows exactly where it doesn't.</p></div>
+    <div class="panel"><b>Cheapest tool first.</b><p style="margin:6px 0 0">Rules handled 80% of orders for free. The AI is paid for only on the rest, and it logs its token cost.</p></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="eyebrow">07 — Limits</div>
+  <h2>What this doesn't prove yet</h2>
+  <div class="panel">
+    <ul style="margin-left:18px">
+      <li>The data is synthetic, and I wrote the rules reader knowing the five formats, so real accuracy would be lower.</li>
+      <li>The AI step is built and tested against a mock response. Its accuracy on these orders still has to be measured with a live API key.</li>
+      <li>The Power Automate, Teams and SharePoint flows are designed with a step-by-step build guide. They need a Microsoft 365 account to run.</li>
+      <li>Duplicate checks look within one run. A real version would check against orders already in the ERP.</li>
+    </ul>
+  </div>
+  <p style="margin-top:18px">Code, data and setup guide: <a href="https://github.com/AbdealiMoiz05/AbdealiMoiz05.github.io/tree/main/projects/order-intake-automation">projects/order-intake-automation</a>. Python, SQLite, Claude API, pypdf, Microsoft Teams Adaptive Cards, Power Automate.</p>
+</div></section>
+
+<footer><div class="inner">
+  <p style="margin-bottom:10px;color:#fff;font-size:19px;font-weight:650">Abdeali Moiz</p>
+  <p>Seeking a 12-month business analyst placement, June 2027 to September 2028.</p>
+  <p style="margin-bottom:0"><a href="mailto:abdealimoiz05@gmail.com">abdealimoiz05@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/abdeali-moiz">LinkedIn</a> &nbsp;·&nbsp; <a href="./">Back to portfolio</a></p>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#eef3fb',primaryTextColor:'#16233a',primaryBorderColor:'#2f4f8f',lineColor:'#7d8ba8',fontSize:'13px',fontFamily:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'}});
+</script>
+</body>
+</html>

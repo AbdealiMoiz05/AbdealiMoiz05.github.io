@@ -1,0 +1,19 @@
+From: Priya Shah <purchasing@northfield-motors.example>
+To: orders@supplier.example
+Subject: New purchase order - Northfield Motors
+Date: 02/11/2026
+
+Hello,
+
+Please find our order below. PO number: 45114925
+Deliver to: Northfield Motors Ltd, Gate 4, Coventry CV6 5RS
+
+Line | Part No  | Description                       |    Qty | Unit price | Required by
+1    | BD-2300  | Brake disc, vented 320mm          |     72 | £   24.55 | 30/11/2026
+2    | SEN-5530 | Wheel speed sensor, ABS           |     60 | £   19.01 | 01/12/2026
+3    | INJ-4410 | Fuel injector, petrol direct      |     66 | £   56.32 | 26/12/2026
+
+Please confirm receipt.
+Kind regards,
+Priya Shah
+Purchasing, Northfield Motors Ltd

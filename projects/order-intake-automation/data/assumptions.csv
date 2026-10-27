@@ -1,0 +1,10 @@
+name,value,unit,source
+orders_per_week,250,orders,Assumption. Replace with the team's real weekly order count.
+manual_minutes_per_order,7,minutes,"Assumption: read the order, key it into the ERP, check part and price. Replace with a timed sample of 20 orders."
+manual_error_rate_pct,3,%,Assumption: share of manually keyed orders with a mistake that reaches the customer or the invoice.
+rework_minutes_per_error,45,minutes,"Assumption: credit note, re-invoice and chasing for one mistake."
+review_minutes_per_flagged_order,6,minutes,Assumption: a person resolves one flagged order using the suggested fix.
+spot_check_minutes_per_auto_order,1,minutes,Assumption: quick look at an auto-approved order before it is booked.
+residual_error_rate_pct,0.5,%,Assumption: mistakes that still get past the checks.
+working_weeks_per_year,46,weeks,UK full-time year after leave and bank holidays.
+hours_per_fte_week,37.5,hours,Standard UK full-time week.

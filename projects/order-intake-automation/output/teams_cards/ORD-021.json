@@ -1,0 +1,41 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-021",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Pennine Automotive plc \u00b7 PO 45322284",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Price Mismatch",
+                "value": "BAT-9500: ordered at \u00a342.69, contract price \u00a345.90"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Send a price correction before confirming",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}

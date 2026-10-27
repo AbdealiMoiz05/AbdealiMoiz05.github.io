@@ -1,0 +1,1174 @@
+[
+  {
+    "doc_id": "ORD-001",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45142484",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "INJ-4420",
+        "quantity": 24,
+        "unit_price": 99.0,
+        "requested_date": "2026-12-18"
+      },
+      {
+        "part_no": "SEN-5520",
+        "quantity": 228,
+        "unit_price": 33.66,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "WB-3320",
+        "quantity": 200,
+        "unit_price": 4.36,
+        "requested_date": "2026-11-23"
+      },
+      {
+        "part_no": "BP-2210",
+        "quantity": 140,
+        "unit_price": 16.19,
+        "requested_date": "2026-11-24"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-001.txt"
+  },
+  {
+    "doc_id": "ORD-002",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45194246",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "BP-2201",
+        "quantity": 150,
+        "unit_price": 16.19,
+        "requested_date": "2026-12-12"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 30,
+        "unit_price": 8.45,
+        "requested_date": "2026-12-10"
+      },
+      {
+        "part_no": "BAT-9500",
+        "quantity": 128,
+        "unit_price": 47.52,
+        "requested_date": "2027-01-04"
+      },
+      {
+        "part_no": "STR-6700",
+        "quantity": 4,
+        "unit_price": 86.24,
+        "requested_date": "2027-01-13"
+      }
+    ],
+    "planted_issues": [
+      "unknown_part"
+    ],
+    "file": "ORD-002.txt"
+  },
+  {
+    "doc_id": "ORD-003",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45114925",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "BD-2300",
+        "quantity": 72,
+        "unit_price": 24.55,
+        "requested_date": "2026-11-30"
+      },
+      {
+        "part_no": "SEN-5530",
+        "quantity": 60,
+        "unit_price": 19.01,
+        "requested_date": "2026-12-01"
+      },
+      {
+        "part_no": "INJ-4410",
+        "quantity": 66,
+        "unit_price": 56.32,
+        "requested_date": "2026-12-26"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-003.txt"
+  },
+  {
+    "doc_id": "ORD-004",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45195237",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "ECU-7710",
+        "quantity": 10,
+        "unit_price": 339.68,
+        "requested_date": "2027-01-17"
+      },
+      {
+        "part_no": "BD-2300",
+        "quantity": 12,
+        "unit_price": 24.55,
+        "requested_date": "2026-12-01"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-004.txt"
+  },
+  {
+    "doc_id": "ORD-005",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45144786",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "BD-2300",
+        "quantity": 44,
+        "unit_price": 24.55,
+        "requested_date": "2026-12-10"
+      },
+      {
+        "part_no": "SEN-5540",
+        "quantity": 384,
+        "unit_price": 15.22,
+        "requested_date": "2026-12-07"
+      },
+      {
+        "part_no": "STR-6700",
+        "quantity": 4,
+        "unit_price": 86.24,
+        "requested_date": "2026-12-28"
+      },
+      {
+        "part_no": "BP-2210",
+        "quantity": 70,
+        "unit_price": 16.19,
+        "requested_date": "2026-12-14"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-005.txt"
+  },
+  {
+    "doc_id": "ORD-006",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45154350",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "SEN-5540",
+        "quantity": 216,
+        "unit_price": 15.22,
+        "requested_date": "2026-12-01"
+      },
+      {
+        "part_no": "FIL-8810",
+        "quantity": 200,
+        "unit_price": 6.95,
+        "requested_date": "2026-12-06"
+      },
+      {
+        "part_no": "SP-1002",
+        "quantity": 850,
+        "unit_price": 2.73,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 40,
+        "unit_price": 7.86,
+        "requested_date": "2026-11-29"
+      }
+    ],
+    "planted_issues": [
+      "price_mismatch"
+    ],
+    "file": "ORD-006.txt"
+  },
+  {
+    "doc_id": "ORD-007",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45125381",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "SEN-5530",
+        "quantity": 228,
+        "unit_price": 19.01,
+        "requested_date": "2026-12-11"
+      },
+      {
+        "part_no": "BP-2215",
+        "quantity": 40,
+        "unit_price": 13.86,
+        "requested_date": "2026-11-28"
+      },
+      {
+        "part_no": "SEN-5520",
+        "quantity": 192,
+        "unit_price": 33.66,
+        "requested_date": "2026-12-03"
+      },
+      {
+        "part_no": "INJ-4420",
+        "quantity": 66,
+        "unit_price": 99.0,
+        "requested_date": "2026-12-26"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-007.txt"
+  },
+  {
+    "doc_id": "ORD-008",
+    "customer_id": "C01",
+    "customer_name": "Northfield Motors Ltd",
+    "format": "table_email",
+    "po_number": "45158874",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "WB-3320",
+        "quantity": 380,
+        "unit_price": 4.36,
+        "requested_date": "2026-12-03"
+      },
+      {
+        "part_no": "FIL-8801",
+        "quantity": 200,
+        "unit_price": 3.04,
+        "requested_date": "2026-11-12"
+      },
+      {
+        "part_no": "FIL-8820",
+        "quantity": 400,
+        "unit_price": 9.86,
+        "requested_date": "2026-11-20"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-008.txt"
+  },
+  {
+    "doc_id": "ORD-009",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45210454",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "BAT-9500",
+        "quantity": 152,
+        "unit_price": 49.68,
+        "requested_date": "2027-01-06"
+      },
+      {
+        "part_no": "BP-2215",
+        "quantity": 150,
+        "unit_price": 14.49,
+        "requested_date": "2026-12-12"
+      },
+      {
+        "part_no": "SP-1002",
+        "quantity": 800,
+        "unit_price": 2.85,
+        "requested_date": "2026-12-05"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-009.txt"
+  },
+  {
+    "doc_id": "ORD-010",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45218231",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "SP-1001",
+        "quantity": 703,
+        "unit_price": 3.86,
+        "requested_date": "2026-11-18"
+      },
+      {
+        "part_no": "WB-3320",
+        "quantity": 240,
+        "unit_price": 4.55,
+        "requested_date": "2026-12-08"
+      },
+      {
+        "part_no": "INJ-4410",
+        "quantity": 84,
+        "unit_price": 58.88,
+        "requested_date": "2026-12-29"
+      }
+    ],
+    "planted_issues": [
+      "pack_size"
+    ],
+    "file": "ORD-010.txt"
+  },
+  {
+    "doc_id": "ORD-011",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45220267",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "WB-3300",
+        "quantity": 80,
+        "unit_price": 6.26,
+        "requested_date": "2026-12-09"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-011.txt"
+  },
+  {
+    "doc_id": "ORD-012",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45258297",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "BD-2300",
+        "quantity": 68,
+        "unit_price": 25.67,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "ECU-7710",
+        "quantity": 9,
+        "unit_price": 355.12,
+        "requested_date": "2027-01-19"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-012.txt"
+  },
+  {
+    "doc_id": "ORD-013",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45280118",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "FIL-8801",
+        "quantity": 280,
+        "unit_price": 3.17,
+        "requested_date": "2026-11-04"
+      }
+    ],
+    "planted_issues": [
+      "lead_time"
+    ],
+    "file": "ORD-013.txt"
+  },
+  {
+    "doc_id": "ORD-014",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45253523",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "STR-6700",
+        "quantity": 16,
+        "unit_price": 90.16,
+        "requested_date": "2027-01-02"
+      },
+      {
+        "part_no": "SEN-5520",
+        "quantity": 72,
+        "unit_price": 35.19,
+        "requested_date": "2026-12-11"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-014.txt"
+  },
+  {
+    "doc_id": "ORD-015",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45250130",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 40,
+        "unit_price": 14.49,
+        "requested_date": "2026-11-26"
+      },
+      {
+        "part_no": "FIL-8801",
+        "quantity": 600,
+        "unit_price": 3.17,
+        "requested_date": "2026-11-22"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-015.txt"
+  },
+  {
+    "doc_id": "ORD-016",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45281540",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 40,
+        "unit_price": 14.49,
+        "requested_date": "2026-11-30"
+      },
+      {
+        "part_no": "ALT-6600",
+        "quantity": 16,
+        "unit_price": 130.64,
+        "requested_date": "2026-12-22"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-016.txt"
+  },
+  {
+    "doc_id": "ORD-017",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45368179",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "ECU-7710",
+        "quantity": 20,
+        "unit_price": 328.1,
+        "requested_date": "2027-01-19"
+      },
+      {
+        "part_no": "SP-1002",
+        "quantity": 900,
+        "unit_price": 2.63,
+        "requested_date": "2026-12-08"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-017.pdf"
+  },
+  {
+    "doc_id": "ORD-018",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": null,
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "INJ-4420",
+        "quantity": 48,
+        "unit_price": 95.62,
+        "requested_date": "2026-12-13"
+      },
+      {
+        "part_no": "FIL-8820",
+        "quantity": 380,
+        "unit_price": 9.52,
+        "requested_date": "2026-12-08"
+      }
+    ],
+    "planted_issues": [
+      "missing_po"
+    ],
+    "file": "ORD-018.pdf"
+  },
+  {
+    "doc_id": "ORD-019",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45341543",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "SEN-5530",
+        "quantity": 168,
+        "unit_price": 18.36,
+        "requested_date": "2026-12-11"
+      },
+      {
+        "part_no": "FIL-8810",
+        "quantity": 200,
+        "unit_price": 6.71,
+        "requested_date": "2026-11-17"
+      },
+      {
+        "part_no": "WB-3320",
+        "quantity": 40,
+        "unit_price": 4.21,
+        "requested_date": "2026-11-23"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-019.pdf"
+  },
+  {
+    "doc_id": "ORD-020",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45392832",
+    "order_date": "2026-11-01",
+    "lines": [
+      {
+        "part_no": "ALT-6600",
+        "quantity": 8,
+        "unit_price": 120.7,
+        "requested_date": "2026-12-24"
+      },
+      {
+        "part_no": "FIL-8801",
+        "quantity": 160,
+        "unit_price": 2.93,
+        "requested_date": "2026-11-30"
+      },
+      {
+        "part_no": "SEN-5530",
+        "quantity": 36,
+        "unit_price": 18.36,
+        "requested_date": "2026-12-11"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-020.pdf"
+  },
+  {
+    "doc_id": "ORD-021",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45322284",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "BAT-9500",
+        "quantity": 136,
+        "unit_price": 42.69,
+        "requested_date": "2027-01-10"
+      }
+    ],
+    "planted_issues": [
+      "price_mismatch"
+    ],
+    "file": "ORD-021.pdf"
+  },
+  {
+    "doc_id": "ORD-022",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45385179",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "BD-2300",
+        "quantity": 44,
+        "unit_price": 23.71,
+        "requested_date": "2026-12-17"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-022.pdf"
+  },
+  {
+    "doc_id": "ORD-023",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45373202",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "FIL-8810",
+        "quantity": 30000,
+        "unit_price": 6.71,
+        "requested_date": "2026-12-01"
+      },
+      {
+        "part_no": "FIL-8820",
+        "quantity": 80,
+        "unit_price": 9.52,
+        "requested_date": "2026-12-04"
+      },
+      {
+        "part_no": "ALT-6600",
+        "quantity": 26,
+        "unit_price": 120.7,
+        "requested_date": "2026-12-28"
+      }
+    ],
+    "planted_issues": [
+      "unusual_quantity"
+    ],
+    "file": "ORD-023.pdf"
+  },
+  {
+    "doc_id": "ORD-024",
+    "customer_id": "C03",
+    "customer_name": "Pennine Automotive plc",
+    "format": "pdf_po",
+    "po_number": "45331616",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "WB-3320",
+        "quantity": 180,
+        "unit_price": 4.21,
+        "requested_date": "2026-12-05"
+      },
+      {
+        "part_no": "INJ-4410",
+        "quantity": 78,
+        "unit_price": 54.4,
+        "requested_date": "2026-12-06"
+      },
+      {
+        "part_no": "FIL-8810",
+        "quantity": 275,
+        "unit_price": 6.71,
+        "requested_date": "2026-12-04"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 110,
+        "unit_price": 8.16,
+        "requested_date": "2026-12-09"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-024.pdf"
+  },
+  {
+    "doc_id": "ORD-025",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45441618",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "INJ-4420",
+        "quantity": 42,
+        "unit_price": 106.88,
+        "requested_date": "2026-12-13"
+      },
+      {
+        "part_no": "STR-6700",
+        "quantity": 36,
+        "unit_price": 93.1,
+        "requested_date": "2026-12-31"
+      },
+      {
+        "part_no": "BAT-9500",
+        "quantity": 152,
+        "unit_price": 51.3,
+        "requested_date": "2026-12-25"
+      },
+      {
+        "part_no": "SP-1001",
+        "quantity": 150,
+        "unit_price": 3.99,
+        "requested_date": "2026-11-26"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-025.txt"
+  },
+  {
+    "doc_id": "ORD-026",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45442003",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 60,
+        "unit_price": 14.96,
+        "requested_date": "2026-12-13"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-026.txt"
+  },
+  {
+    "doc_id": "ORD-027",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45442027",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "BAT-9500",
+        "quantity": 56,
+        "unit_price": 51.3,
+        "requested_date": "2026-11-04"
+      },
+      {
+        "part_no": "INJ-4420",
+        "quantity": 18,
+        "unit_price": 106.88,
+        "requested_date": "2027-01-03"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 160,
+        "unit_price": 9.12,
+        "requested_date": "2026-12-12"
+      },
+      {
+        "part_no": "SP-1002",
+        "quantity": 250,
+        "unit_price": 2.94,
+        "requested_date": "2026-11-14"
+      }
+    ],
+    "planted_issues": [
+      "lead_time"
+    ],
+    "file": "ORD-027.txt"
+  },
+  {
+    "doc_id": "ORD-028",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45474711",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 90,
+        "unit_price": 14.96,
+        "requested_date": "2026-11-19"
+      },
+      {
+        "part_no": "SP-1001",
+        "quantity": 950,
+        "unit_price": 3.99,
+        "requested_date": "2026-11-20"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-028.txt"
+  },
+  {
+    "doc_id": "ORD-029",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45412901",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "STR-6700",
+        "quantity": 8,
+        "unit_price": 93.1,
+        "requested_date": "2027-01-03"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-029.txt"
+  },
+  {
+    "doc_id": "ORD-030",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45494603",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 60,
+        "unit_price": 14.96,
+        "requested_date": "2026-11-24"
+      },
+      {
+        "part_no": "BAT-9500",
+        "quantity": 16,
+        "unit_price": 51.3,
+        "requested_date": "2027-01-10"
+      },
+      {
+        "part_no": "WB-3300",
+        "quantity": 220,
+        "unit_price": 6.46,
+        "requested_date": "2026-11-27"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-030.txt"
+  },
+  {
+    "doc_id": "ORD-031",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45436230",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "HRN-9109",
+        "quantity": 60,
+        "unit_price": 9.12,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "BP-2215",
+        "quantity": 160,
+        "unit_price": 14.96,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "FIL-8801",
+        "quantity": 400,
+        "unit_price": 3.28,
+        "requested_date": "2026-12-05"
+      }
+    ],
+    "planted_issues": [
+      "unknown_part"
+    ],
+    "file": "ORD-031.txt"
+  },
+  {
+    "doc_id": "ORD-032",
+    "customer_id": "C04",
+    "customer_name": "Thames Valley EV Ltd",
+    "format": "csv_paste",
+    "po_number": "45467019",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "WB-3320",
+        "quantity": 320,
+        "unit_price": 4.7,
+        "requested_date": "2026-11-29"
+      },
+      {
+        "part_no": "STR-6700",
+        "quantity": 12,
+        "unit_price": 93.1,
+        "requested_date": "2026-12-19"
+      },
+      {
+        "part_no": "FIL-8810",
+        "quantity": 375,
+        "unit_price": 7.5,
+        "requested_date": "2026-12-02"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-032.txt"
+  },
+  {
+    "doc_id": "ORD-033",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45528620",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "SEN-5530",
+        "quantity": 48,
+        "unit_price": 19.44,
+        "requested_date": "2026-11-22"
+      },
+      {
+        "part_no": "STR-6700",
+        "quantity": 12,
+        "unit_price": 88.2,
+        "requested_date": "2027-01-07"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 150,
+        "unit_price": 8.64,
+        "requested_date": "2026-12-13"
+      },
+      {
+        "part_no": "WB-3300",
+        "quantity": 160,
+        "unit_price": 6.12,
+        "requested_date": "2026-12-06"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-033.txt"
+  },
+  {
+    "doc_id": "ORD-034",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45513703",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "FIL-8810",
+        "quantity": 253,
+        "unit_price": 7.11,
+        "requested_date": "2026-11-22"
+      },
+      {
+        "part_no": "ALT-6600",
+        "quantity": 8,
+        "unit_price": 127.8,
+        "requested_date": "2026-12-20"
+      },
+      {
+        "part_no": "SEN-5530",
+        "quantity": 48,
+        "unit_price": 19.44,
+        "requested_date": "2026-12-04"
+      },
+      {
+        "part_no": "WB-3300",
+        "quantity": 140,
+        "unit_price": 6.12,
+        "requested_date": "2026-11-25"
+      }
+    ],
+    "planted_issues": [
+      "pack_size"
+    ],
+    "file": "ORD-034.txt"
+  },
+  {
+    "doc_id": "ORD-035",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45573891",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "WB-3300",
+        "quantity": 200,
+        "unit_price": 6.12,
+        "requested_date": "2026-11-28"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-035.txt"
+  },
+  {
+    "doc_id": "ORD-036",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45560961",
+    "order_date": "2026-10-31",
+    "lines": [
+      {
+        "part_no": "FIL-8801",
+        "quantity": 760,
+        "unit_price": 3.11,
+        "requested_date": "2026-12-04"
+      },
+      {
+        "part_no": "BP-2215",
+        "quantity": 150,
+        "unit_price": 14.18,
+        "requested_date": "2026-12-06"
+      },
+      {
+        "part_no": "BAT-9500",
+        "quantity": 112,
+        "unit_price": 48.6,
+        "requested_date": "2027-01-11"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-036.txt"
+  },
+  {
+    "doc_id": "ORD-037",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": null,
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "FIL-8820",
+        "quantity": 200,
+        "unit_price": 10.08,
+        "requested_date": "2026-11-19"
+      },
+      {
+        "part_no": "INJ-4410",
+        "quantity": 96,
+        "unit_price": 57.6,
+        "requested_date": "2026-12-03"
+      },
+      {
+        "part_no": "SP-1001",
+        "quantity": 750,
+        "unit_price": 3.78,
+        "requested_date": "2026-11-17"
+      }
+    ],
+    "planted_issues": [
+      "missing_po"
+    ],
+    "file": "ORD-037.txt"
+  },
+  {
+    "doc_id": "ORD-038",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45582156",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "INJ-4410",
+        "quantity": 114,
+        "unit_price": 57.6,
+        "requested_date": "2026-12-16"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-038.txt"
+  },
+  {
+    "doc_id": "ORD-039",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45575330",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "WB-3320",
+        "quantity": 360,
+        "unit_price": 4.46,
+        "requested_date": "2026-12-04"
+      },
+      {
+        "part_no": "BD-2300",
+        "quantity": 68,
+        "unit_price": 25.11,
+        "requested_date": "2026-12-02"
+      },
+      {
+        "part_no": "HRN-9100",
+        "quantity": 20,
+        "unit_price": 8.04,
+        "requested_date": "2026-12-13"
+      }
+    ],
+    "planted_issues": [
+      "price_mismatch"
+    ],
+    "file": "ORD-039.txt"
+  },
+  {
+    "doc_id": "ORD-040",
+    "customer_id": "C05",
+    "customer_name": "Midlands Commercial Vehicles",
+    "format": "amended_email",
+    "po_number": "45591847",
+    "order_date": "2026-10-30",
+    "lines": [
+      {
+        "part_no": "WB-3320",
+        "quantity": 160,
+        "unit_price": 4.46,
+        "requested_date": "2026-12-05"
+      },
+      {
+        "part_no": "BP-2210",
+        "quantity": 170,
+        "unit_price": 16.56,
+        "requested_date": "2026-12-12"
+      },
+      {
+        "part_no": "ALT-6600",
+        "quantity": 20,
+        "unit_price": 127.8,
+        "requested_date": "2026-12-24"
+      },
+      {
+        "part_no": "WB-3300",
+        "quantity": 220,
+        "unit_price": 6.12,
+        "requested_date": "2026-11-26"
+      }
+    ],
+    "planted_issues": [],
+    "file": "ORD-040.txt"
+  },
+  {
+    "doc_id": "ORD-041",
+    "customer_id": "C02",
+    "customer_name": "Severn Vehicle Assembly",
+    "format": "free_text_email",
+    "po_number": "45250130",
+    "order_date": "2026-11-02",
+    "lines": [
+      {
+        "part_no": "BP-2215",
+        "quantity": 40,
+        "unit_price": 14.49,
+        "requested_date": "2026-11-26"
+      },
+      {
+        "part_no": "FIL-8801",
+        "quantity": 600,
+        "unit_price": 3.17,
+        "requested_date": "2026-11-22"
+      }
+    ],
+    "planted_issues": [
+      "duplicate_po"
+    ],
+    "file": "ORD-041.txt"
+  }
+]

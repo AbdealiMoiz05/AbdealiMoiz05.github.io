@@ -1,0 +1,15 @@
+From: Tom Hughes <t.hughes@severn-va.example>
+To: orders@supplier.example
+Subject: parts for next month
+Date: 02/11/2026
+
+Hi all,
+
+Hope you're well. Could you get the following over to the Swindon line please:
+16 x starter motor (STR-6700) at £90.16 each, needed by the 2nd January;
+72 x lambda sensor (SEN-5520) at £35.19 each, needed by the 11th December.
+
+Our ref is 45253523. Same delivery address as usual. Shout if anything's a problem.
+
+Cheers,
+Tom

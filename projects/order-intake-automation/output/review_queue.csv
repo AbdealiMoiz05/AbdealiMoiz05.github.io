@@ -1,0 +1,22 @@
+doc_id,customer,po_number,line_no,check,detail,suggested_fix,status
+ORD-018,Pennine Automotive plc,,,MISSING_PO,No purchase order number,Ask the buyer for the PO before booking,pending_review
+ORD-033,Midlands Commercial Vehicles,45528620,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-034,Midlands Commercial Vehicles,45513703,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-035,Midlands Commercial Vehicles,45573891,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-036,Midlands Commercial Vehicles,45560961,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-037,Midlands Commercial Vehicles,,,MISSING_PO,No purchase order number,Ask the buyer for the PO before booking,pending_review
+ORD-037,Midlands Commercial Vehicles,,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-038,Midlands Commercial Vehicles,45582156,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-039,Midlands Commercial Vehicles,45575330,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-040,Midlands Commercial Vehicles,45591847,,LOW_CONFIDENCE,Unsure about: correction_in_thread,Check the original document,pending_review
+ORD-041,Severn Vehicle Assembly,45250130,,DUPLICATE_PO,PO 45250130 already received in ORD-015,Confirm with the buyer before booking a second time,pending_review
+ORD-002,Northfield Motors Ltd,45194246,1,UNKNOWN_PART,BP-2201 is not a catalogue part,Closest catalogue parts: BP-2215 or BP-2210. Confirm with the buyer,pending_review
+ORD-006,Northfield Motors Ltd,45154350,4,PRICE_MISMATCH,"HRN-9100: ordered at £7.86, contract price £8.45",Send a price correction before confirming,pending_review
+ORD-010,Severn Vehicle Assembly,45218231,1,PACK_SIZE,SP-1001: 703 is not a multiple of the pack size 50,"Round to 750 or 700, and confirm with the buyer",pending_review
+ORD-013,Severn Vehicle Assembly,45280118,1,LEAD_TIME,"FIL-8801: wanted 2026-11-04, lead time is 7 days","Offer 2026-11-09, or escalate for an expedite",pending_review
+ORD-021,Pennine Automotive plc,45322284,1,PRICE_MISMATCH,"BAT-9500: ordered at £42.69, contract price £45.90",Send a price correction before confirming,pending_review
+ORD-023,Pennine Automotive plc,45373202,1,UNUSUAL_QTY,FIL-8810: 30000 units (1200 packs),Confirm the quantity with the buyer,pending_review
+ORD-027,Thames Valley EV Ltd,45442027,1,LEAD_TIME,"BAT-9500: wanted 2026-11-04, lead time is 49 days","Offer 2026-12-21, or escalate for an expedite",pending_review
+ORD-031,Thames Valley EV Ltd,45436230,1,UNKNOWN_PART,HRN-9109 is not a catalogue part,Closest catalogue parts: HRN-9100. Confirm with the buyer,pending_review
+ORD-034,Midlands Commercial Vehicles,45513703,1,PACK_SIZE,FIL-8810: 378 is not a multiple of the pack size 25,"Round to 400 or 375, and confirm with the buyer",pending_review
+ORD-039,Midlands Commercial Vehicles,45575330,3,PRICE_MISMATCH,"HRN-9100: ordered at £8.04, contract price £8.64",Send a price correction before confirming,pending_review

@@ -1,0 +1,41 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Order needs review: ORD-013",
+            "weight": "Bolder",
+            "size": "Medium"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Severn Vehicle Assembly \u00b7 PO 45280118",
+            "isSubtle": true,
+            "spacing": "None"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Lead Time",
+                "value": "FIL-8801: wanted 2026-11-04, lead time is 7 days"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Suggested next step: Offer 2026-11-09, or escalate for an expedite",
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}
