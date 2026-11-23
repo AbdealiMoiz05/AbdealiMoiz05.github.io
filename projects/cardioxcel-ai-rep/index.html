@@ -181,6 +181,10 @@ function answer(q){const l=q.toLowerCase(),se=SE.some(w=>l.includes(w));
 const $=id=>document.getElementById(id),chat=$("chat");
 const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function add(cls,html){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+const FEM=/female|woman|samantha|karen|serena|kate|moira|tessa|fiona|martha|stephanie|libby|sonia|hazel|susan|zira|aria|jenny|emma|amy|catherine|victoria|allison|ava|google uk english female/i;
+function pickVoice(){const all=speechSynthesis.getVoices().filter(x=>/^en/i.test(x.lang));
+ return all.find(x=>/en-GB/i.test(x.lang)&&FEM.test(x.name))||all.find(x=>FEM.test(x.name))||all.find(x=>/en-GB/i.test(x.lang)&&!/male|daniel|arthur|george|ryan|thomas|oliver|fred|alex|david|mark|guy/i.test(x.name))||null}
+try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}catch(e){}
 let muted=false,mouthT=null,secs=0,clock=null;
 function talk(text){
  const cap=$("cap");cap.textContent=text;cap.style.display="block";
@@ -188,7 +192,7 @@ function talk(text){
  const stop=()=>{v.classList.remove("talking");clearInterval(mouthT);$("mouth").setAttribute("ry",3);setTimeout(()=>cap.style.display="none",1500)};
  clearInterval(mouthT);mouthT=setInterval(()=>$("mouth").setAttribute("ry",3+Math.random()*9),110);
  if(!muted&&"speechSynthesis" in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-GB";u.rate=1;
-  const vs=speechSynthesis.getVoices().filter(x=>x.lang==="en-GB");const f=vs.find(x=>/female|libby|sonia|serena|kate|martha/i.test(x.name))||vs[0];if(f)u.voice=f;
+  const f=pickVoice();if(f){u.voice=f;u.lang=f.lang}u.pitch=f&&FEM.test(f.name)?1:1.25;
   u.onend=stop;u.onerror=stop;speechSynthesis.speak(u)}
  else setTimeout(stop,Math.min(8000,text.length*55));
 }
