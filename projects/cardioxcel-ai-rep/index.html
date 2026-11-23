@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CardioXcel AI Rep · Prototype by Abdeali Moiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+:root{--bg:#F2F4F9;--card:#fff;--fg:#141E3C;--mute:#5B6478;--line:#D9DEEA;--pur:#6C4CD9;--purs:#ECE7FB;--teal:#00857F;--tl:#E3F4F3;--amb:#B86E00;--red:#C9281C;--reds:#FDECEA;--fd:"Space Grotesk",Inter,system-ui,sans-serif;--fb:Inter,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1426;--card:#18203A;--fg:#E8ECF7;--mute:#A3ABC2;--line:#2C3658;--pur:#9C85FF;--purs:#2A2450;--teal:#3CCBC3;--tl:#163636;--amb:#F5B547;--red:#FF7A6E;--reds:#3A1F24;color-scheme:dark}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--fb);padding:20px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1020px;margin:0 auto;display:grid;gap:16px}
+h1{font-family:var(--fd);font-size:28px;margin:0}
+.sub{color:var(--mute);margin:4px 0 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--reds);color:var(--red)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:600 14px var(--fb);padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--pur);border-color:var(--pur);color:#fff}
+button:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.call{display:grid;grid-template-columns:340px 1fr;gap:16px}
+@media(max-width:760px){.call{grid-template-columns:1fr}}
+/* video call */
+.video{position:relative;background:linear-gradient(160deg,#1d2850,#0e1430);border-radius:14px;overflow:hidden;aspect-ratio:3/4;color:#fff;display:grid;place-items:center}
+@media(max-width:760px){.video{aspect-ratio:4/3}}
+.top{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;font-size:12px}
+.live{background:#d52b1e;padding:2px 8px;border-radius:4px;font-weight:700}
+.timer{background:rgba(0,0,0,.4);padding:2px 8px;border-radius:4px;font-variant-numeric:tabular-nums}
+svg.face{width:62%;max-width:220px}
+.mouth{transition:all .08s}
+.eyes{animation:blink 4s infinite;transform-origin:center 92px}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.talking .name{opacity:0}
+.talking .ring{animation:pulse 1s infinite}
+@keyframes pulse{0%{opacity:.6;r:96}100%{opacity:0;r:118}}
+.name{position:absolute;bottom:70px;left:0;right:0;text-align:center;font-weight:600}
+.name small{display:block;font-weight:400;opacity:.75;font-size:12px}
+.caption{position:absolute;bottom:62px;left:12px;right:12px;font-size:13px;background:rgba(0,0,0,.55);padding:6px 8px;border-radius:6px;display:none}
+.controls{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:10px;justify-content:center}
+.controls button{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;font-size:18px;background:rgba(255,255,255,.18);color:#fff}
+.controls .end{background:#d52b1e}.controls .on{background:#00a39d}
+.self{position:absolute;top:40px;right:10px;width:70px;height:90px;border-radius:8px;background:#36406a;display:grid;place-items:center;font-size:11px;opacity:.9}
+.start{position:absolute;inset:0;display:grid;place-items:center;background:rgba(14,20,48,.85);text-align:center;padding:20px}
+.start button{font:600 16px var(--fb);padding:12px 22px;border-radius:999px;border:0;background:#00a39d;color:#fff;cursor:pointer}
+.chat{display:grid;gap:10px;max-height:420px;overflow-y:auto;min-width:0;align-content:start}
+.msg{padding:10px 12px;border-radius:10px;max-width:92%}
+.gp{background:var(--bg);justify-self:end}.ai{background:var(--purs)}.ai.hand{background:var(--reds)}
+.src{display:block;font-size:12px;color:var(--mute);margin-top:6px}
+.flag{display:block;font-size:12px;font-weight:700;color:var(--amb);margin-top:4px}
+form{display:flex;gap:8px;margin-top:12px}
+input{flex:1;min-width:0;font:15px var(--fb);padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.send{font:600 14px var(--fb);padding:10px 16px;border-radius:8px;border:0;background:var(--pur);color:#fff;cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chips button{font:13px var(--fb);padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tile b{display:block;font-family:var(--fd);font-size:30px;font-variant-numeric:tabular-nums}.tile span{color:var(--mute);font-size:13px}
+.grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.bar{display:grid;grid-template-columns:1.3fr 2fr 36px;gap:8px;align-items:center;margin:8px 0;font-size:13px}
+.bar i{display:block;height:12px;border-radius:3px;background:var(--pur)}.bar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.alert{background:var(--reds);border-color:var(--red)}
+h3{margin:0 0 6px;font-size:15px}
+table{font-size:13px;border-collapse:collapse;width:100%}td,th{padding:6px;border-bottom:1px solid var(--line);text-align:left}
+.pill{font-size:11px;font-weight:700;padding:2px 6px;border-radius:4px}.p-ok{background:var(--tl);color:var(--teal)}.p-h{background:var(--reds);color:var(--red)}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.how .card b{display:block;font-family:var(--fd);font-size:16px;margin-bottom:4px}
+.note{font-size:12px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">Prototype · fictional content</span>
+  <h1>CardioXcel AI Rep</h1>
+  <p class="sub">A prototype by Abdeali Moiz for the Lilly Business &amp; Technology Integrator challenge. Start the video call, ask a question as a GP (type it or press the mic), then open Emma's dashboard.</p>
+</header>
+<div class="tabs" role="tablist">
+  <button id="t1" role="tab" aria-selected="true">GP video call</button>
+  <button id="t2" role="tab" aria-selected="false">Emma's dashboard</button>
+  <button id="t3" role="tab" aria-selected="false">How it works</button>
+</div>
+
+<section id="v1" class="call">
+  <div class="video" id="video">
+    <div class="top"><span class="live">AI · LIVE</span><span class="timer" id="timer">00:00</span></div>
+    <div class="self">You (GP)</div>
+    <svg class="face" viewBox="0 0 200 200" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="96" fill="none" stroke="#9C85FF" stroke-width="3" opacity="0"/>
+      <circle cx="100" cy="100" r="92" fill="#6C4CD9"/>
+      <path d="M40 95 Q42 30 100 28 Q158 30 160 95 Q150 55 100 52 Q50 55 40 95Z" fill="#2a1f5c"/>
+      <ellipse cx="100" cy="108" rx="52" ry="60" fill="#F2C7A5"/>
+      <path d="M48 100 Q50 48 100 46 Q150 48 152 100 Q140 66 100 64 Q60 66 48 100Z" fill="#2a1f5c"/>
+      <g class="eyes"><circle cx="80" cy="102" r="6" fill="#1b1b2f"/><circle cx="120" cy="102" r="6" fill="#1b1b2f"/></g>
+      <path d="M70 88 Q80 83 90 88M110 88 Q120 83 130 88" stroke="#2a1f5c" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse class="mouth" id="mouth" cx="100" cy="140" rx="14" ry="3" fill="#8a2c2c"/>
+      <path d="M60 170 Q100 200 140 170 L150 200 L50 200Z" fill="#fff"/>
+    </svg>
+    <div class="name">Dr Sarah Lee (AI)<small>MedPharma Cardiology · AI assistant</small></div>
+    <div class="caption" id="cap"></div>
+    <div class="controls">
+      <button id="mic" title="Ask by voice" aria-label="Ask by voice">🎤</button>
+      <button id="mute" title="Mute AI voice" aria-label="Mute AI voice">🔊</button>
+      <button id="human" title="Talk to a human" aria-label="Talk to a human">👤</button>
+      <button class="end" id="end" title="End call" aria-label="End call">✕</button>
+    </div>
+    <div class="start" id="start"><div><p style="margin:0 0 14px">Dr Sarah Lee (AI) is ready.<br><small style="opacity:.75">An AI built from approved MedPharma content.</small></p><button id="go">Start video call</button></div></div>
+  </div>
+  <div class="card" style="min-width:0">
+    <div class="chat" id="chat"></div>
+    <form id="f"><input id="q" placeholder="Ask a question, e.g. dosing in kidney problems" aria-label="Your question"><button class="send">Ask</button></form>
+    <div class="chips" id="chips"></div>
+  </div>
+</section>
+
+<section id="v2" hidden>
+ <div class="wrap">
+  <div class="tiles">
+   <div class="card tile"><b id="k1">0</b><span>doctor questions this month</span></div>
+   <div class="card tile"><b id="k2">0%</b><span>answered without a human</span></div>
+   <div class="card tile"><b id="k3">0</b><span>sent to Medical Information</span></div>
+   <div class="card tile"><b id="k4">0</b><span>side effects logged for safety</span></div>
+  </div>
+  <div class="grid2">
+   <div class="card"><h3>Top question themes</h3><div id="bars"></div></div>
+   <div style="display:grid;gap:12px">
+    <div class="card alert"><h3 style="color:var(--red)">Alert</h3><p style="margin:0;font-size:14px" id="alert"></p></div>
+    <div class="card"><h3 style="color:var(--teal)">Content test (A vs B)</h3><p style="margin:0;font-size:14px">Kidney summary A (one page): <b>64%</b> of GPs read to the end.<br>Summary B (3 bullet points): <b>81%</b>.<br>Action: switch everyone to B.</p></div>
+    <div class="card"><h3>Unanswered topics</h3><p style="margin:0;font-size:14px" id="gaps">Questions the AI couldn't answer show here, so the team knows what content to write next.</p></div>
+   </div>
+  </div>
+  <div class="card" style="overflow-x:auto"><h3>Latest questions (no patient data stored)</h3><table><thead><tr><th>Question</th><th>Theme</th><th>Result</th></tr></thead><tbody id="log"></tbody></table></div>
+  <p class="note">Numbers start from a fictional pilot. Questions you ask on the call are added live.</p>
+ </div>
+</section>
+
+<section id="v3" hidden>
+ <div class="how">
+  <div class="card"><b>1. Approved facts only</b>Every answer comes from a fixed library of approved product information, and shows its source. The AI never makes up an answer.</div>
+  <div class="card"><b>2. Always honest it's AI</b>The avatar says it's an AI at the start of every call and is labelled on screen.</div>
+  <div class="card"><b>3. Human hand-off</b>Off-label questions (pregnancy, children, higher doses) and anything not in the library go straight to Medical Information.</div>
+  <div class="card"><b>4. Safety reporting</b>If a doctor mentions a side effect, it is flagged for the safety team (pharmacovigilance).</div>
+  <div class="card"><b>5. Questions become insight</b>Every question is anonymised and grouped into themes on the brand team's dashboard.</div>
+  <div class="card"><b>6. Test and learn</b>Two versions of content are tested, and the one doctors actually use wins.</div>
+ </div>
+</section>
+<p class="note">Demo with made-up content. Not real CardioXcel, MedPharma or Lilly information. Not medical advice.</p>
+</div>
+
+<script>
+const LIB=[
+ {t:"Kidney function and dosing",k:["kidney","renal","egfr","ckd","dialysis"],a:"No dose change is needed for mild to moderate kidney impairment. Use with caution if eGFR is under 30, and it is not recommended for patients on dialysis. Check kidney function before starting and at 3 months.",s:"section 4.2"},
+ {t:"Liver problems",k:["liver","hepatic","cirrhosis"],a:"No dose change for mild liver impairment. It is not recommended in severe liver impairment, as it has not been studied there.",s:"section 4.2"},
+ {t:"Dosing",k:["dose","dosing","how much","tablet","mg","once a day","twice"],a:"The approved dose is one 10 milligram tablet once a day, with or without food. There is no need to build up the dose.",s:"section 4.2"},
+ {t:"Missed dose",k:["miss","forgot","forget"],a:"If a dose is missed, the patient takes it when they remember that day. They should not take two doses on the same day.",s:"section 4.2"},
+ {t:"Use with other heart medicines",k:["interact","statin","warfarin","together","combine","other medic","aspirin","beta","ace inhibitor","diuretic"],a:"No major interaction is listed with statins, aspirin or warfarin. Blood pressure can drop further when used with other blood pressure medicines, so monitor it in the first two weeks.",s:"section 4.5"},
+ {t:"Side effects",k:["side effect","adverse","dizz","headache","common effect","safety"],a:"The most common side effects are dizziness, in about 1 in 10 patients, and headache. They are usually mild and settle in the first two weeks. Rates were similar in patients over 65.",s:"section 4.8"},
+ {t:"Who is eligible",k:["eligible","who can","indicat","which patient","suitable","licensed for","what is it for","used for"],a:"It is licensed for adults with diagnosed heart failure who are already on standard treatment. The GP decides whether it suits each patient.",s:"section 4.1"},
+ {t:"Who should not take it",k:["contraind","should not","shouldn't","avoid","allerg"],a:"It must not be used in patients allergic to the active substance, or with very low blood pressure, under 90 systolic.",s:"section 4.3"},
+ {t:"Older patients",k:["elderly","older","over 65","age"],a:"No dose change is needed for older patients. Start at the usual dose and check blood pressure, as dizziness can raise the risk of falls.",s:"section 4.2"},
+ {t:"Monitoring",k:["monitor","blood test","check","follow up","review"],a:"Check blood pressure and kidney function before starting, then again at 2 weeks and 3 months.",s:"section 4.4"},
+ {t:"Driving",k:["driv","car","machine"],a:"It may cause dizziness, especially at the start. Patients should not drive if they feel dizzy.",s:"section 4.7"},
+ {t:"Alcohol and food",k:["alcohol","drink","food","grapefruit","eat"],a:"It can be taken with or without food. Alcohol may make dizziness worse, so patients should be careful.",s:"section 4.5"},
+ {t:"Evidence",k:["trial","evidence","study","data","work","effective","how good"],a:"In the main trial, patients on CardioXcel had fewer hospital stays for heart failure than those on placebo. I can send you the approved evidence summary.",s:"section 5.1"},
+ {t:"Patient support",k:["patient support","leaflet","adherence","reminder","patient info"],a:"Patients who are prescribed it can join a support programme with reminders and an information leaflet, through their GP.",s:"approved patient materials"},
+ {t:"Prescribing and supply",k:["prescrib","formulary","stock","available","supply","cost","price"],a:"Local formulary status varies by area. I've noted your question for the MedPharma account team, who will follow up.",s:"MedPharma access team",h:true}
+];
+const OFF=["child","pregnan","breastfeed","off-label","off label","double the dose","higher dose","unlicensed","teen","year old","kids"];
+const SE=["side effect","rash","swelling","reaction","my patient had","my patient got","fainted"];
+const seed={"Kidney function and dosing":412,"Use with other heart medicines":301,"Side effects":236,"Who is eligible":158,"Dosing":133};
+let st={q:[]};try{const s=JSON.parse(localStorage.getItem("cx2")||"null");if(s&&s.q)st=s}catch(e){}
+const save=()=>{try{localStorage.setItem("cx2",JSON.stringify(st))}catch(e){}};
+function answer(q){const l=q.toLowerCase(),se=SE.some(w=>l.includes(w));
+ if(/^(hi|hello|hey)\b/.test(l))return{t:"Greeting",a:"Hello doctor. I'm an AI assistant for CardioXcel, built only from approved MedPharma content. What would you like to know?",g:1};
+ if(/thank/.test(l))return{t:"Greeting",a:"You're welcome. You can call me any time, day or night.",g:1};
+ if(/(are you|is this).*(real|human|ai|robot)/.test(l))return{t:"Greeting",a:"I'm an AI, not a person. I'm modelled on a real MedPharma heart specialist, with their consent. Press the person button any time to speak to a human.",g:1};
+ if(OFF.some(w=>l.includes(w)))return{h:1,t:"Off-label (sent to human)",a:"That's outside the approved use, so I won't guess. I've passed your question to Medical Information. A MedPharma pharmacist will reply within one working day.",se};
+ const hit=LIB.find(x=>x.k.some(w=>l.includes(w)));
+ if(!hit)return{h:1,gap:1,t:"Not covered (sent to human)",a:"I don't have approved content on that yet, so I've sent it to Medical Information. Your question also tells our team what to write next.",se};
+ return{h:!!hit.h,t:hit.t,a:hit.a,s:hit.s,se};
+}
+const $=id=>document.getElementById(id),chat=$("chat");
+const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function add(cls,html){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+let muted=false,mouthT=null,secs=0,clock=null;
+function talk(text){
+ const cap=$("cap");cap.textContent=text;cap.style.display="block";
+ const v=$("video");v.classList.add("talking");
+ const stop=()=>{v.classList.remove("talking");clearInterval(mouthT);$("mouth").setAttribute("ry",3);setTimeout(()=>cap.style.display="none",1500)};
+ clearInterval(mouthT);mouthT=setInterval(()=>$("mouth").setAttribute("ry",3+Math.random()*9),110);
+ if(!muted&&"speechSynthesis" in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-GB";u.rate=1;
+  const vs=speechSynthesis.getVoices().filter(x=>x.lang==="en-GB");const f=vs.find(x=>/female|libby|sonia|serena|kate|martha/i.test(x.name))||vs[0];if(f)u.voice=f;
+  u.onend=stop;u.onerror=stop;speechSynthesis.speak(u)}
+ else setTimeout(stop,Math.min(8000,text.length*55));
+}
+function ask(q){if(!q.trim())return;add("gp",esc(q));const r=answer(q);
+ add("ai"+(r.h?" hand":""),esc(r.a)+(r.s?`<span class="src">Source: approved product information, ${r.s} (fictional)</span>`:"")+(r.se?`<span class="flag">Side effect mentioned: logged for safety reporting</span>`:""));
+ talk(r.a+(r.se?" I've also logged that side effect for our safety team.":""));
+ if(!r.g){st.q.unshift({q,t:r.t,h:!!r.h,se:!!r.se,gap:!!r.gap});save();render()}}
+$("f").addEventListener("submit",e=>{e.preventDefault();ask($("q").value);$("q").value=""});
+["Can I use this with reduced kidney function?","Is it safe with a statin?","What are the common side effects?","What if a patient misses a dose?","Can I give it to a pregnant patient?","My patient had a rash, what now?","Are you a real person?"].forEach(t=>{const b=document.createElement("button");b.type="button";b.textContent=t;b.onclick=()=>ask(t);$("chips").appendChild(b)});
+$("go").onclick=()=>{$("start").hidden=true;secs=0;clearInterval(clock);clock=setInterval(()=>{secs++;$("timer").textContent=String(secs/60|0).padStart(2,"0")+":"+String(secs%60).padStart(2,"0")},1000);
+ const hi="Hello doctor, I'm Sarah, an AI assistant for CardioXcel. I only use approved product information. Ask me anything about the licensed use.";add("ai",hi);talk(hi)};
+$("end").onclick=()=>{clearInterval(clock);try{speechSynthesis.cancel()}catch(e){}$("start").hidden=false};
+$("mute").onclick=()=>{muted=!muted;$("mute").textContent=muted?"🔇":"🔊";if(muted)try{speechSynthesis.cancel()}catch(e){}};
+$("human").onclick=()=>{const t="No problem. I'm connecting you to a pharmacist in MedPharma Medical Information now.";add("ai hand",t);talk(t)};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+$("mic").onclick=()=>{if(!SR){add("ai","Voice questions work in Chrome. Please type your question instead.");return}
+ const r=new SR();r.lang="en-GB";r.interimResults=false;$("mic").classList.add("on");
+ r.onresult=e=>ask(e.results[0][0].transcript);r.onend=()=>$("mic").classList.remove("on");r.onerror=()=>$("mic").classList.remove("on");r.start()};
+function render(){const c={...seed};let hand=96,se=27,total=1240,gaps=[];
+ st.q.forEach(x=>{total++;if(x.h)hand++;if(x.se)se++;if(x.gap)gaps.push(x.q);if(!x.h)c[x.t]=(c[x.t]||0)+1});
+ $("k1").textContent=total.toLocaleString();$("k2").textContent=Math.round((total-hand)/total*100)+"%";$("k3").textContent=hand;$("k4").textContent=se;
+ const e=Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,6),m=e[0][1];
+ $("bars").innerHTML=e.map(([t,v])=>`<div class="bar"><span>${t}</span><i style="width:${v/m*100}%"></i><em>${v}</em></div>`).join("");
+ $("alert").textContent=`"${e[0][0]}" is the top question this month and up sharply in the North West. Action: send GPs there a short approved summary and a webinar invite.`;
+ if(gaps.length)$("gaps").innerHTML=gaps.slice(0,4).map(g=>"• "+esc(g)).join("<br>");
+ const rows=st.q.slice(0,6).map(x=>[x.q,x.t,x.h]).concat([["Dose for eGFR 25?","Kidney function and dosing",false],["Can I give it with warfarin?","Use with other heart medicines",false],["Use in a 15 year old?","Off-label (sent to human)",true]]).slice(0,8);
+ $("log").innerHTML=rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${r[1]}</td><td><span class="pill ${r[2]?"p-h":"p-ok"}">${r[2]?"Human":"Answered"}</span></td></tr>`).join("")}
+function tab(n){["1","2","3"].forEach(i=>{$("t"+i).setAttribute("aria-selected",i===n);$("v"+i).hidden=i!==n})}
+["1","2","3"].forEach(i=>$("t"+i).onclick=()=>tab(i));
+render();
+</script>
+</body>
+</html>
